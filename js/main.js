@@ -9,12 +9,15 @@ const translations = {
     'nav.contact': 'Contact',
 
     'hero.eyebrow': "Hello, I'm",
-    'hero.bio': 'I turn raw data into actionable intelligence — building machine learning systems, crafting predictive models, and deploying AI solutions that drive real impact.',
+    'hero.role': 'Data & Automation Specialist',
+    'hero.bio': 'I turn messy operational data — bookings, transactions, daily records — into dashboards, automation, and forecasts that are actually usable. Focused on SMEs and small businesses still working manually.',
     'hero.cta1': 'View My Work',
     'hero.cta2': 'Get In Touch',
-    'hero.stat1': 'Projects',
-    'hero.stat2': 'Years Exp',
-    'hero.stat3': 'Clients',
+    'hero.stat1': 'End-to-End Case Study',
+    'hero.stat2': 'Phases: Dashboard · Automation · Forecast',
+    'hero.stat3': 'Open for Freelance',
+    'hero.badge1': 'Automation First',
+    'hero.badge2': 'Data Driven',
 
     'about.tag': 'About',
     'about.title': 'Who I Am',
@@ -48,6 +51,9 @@ const translations = {
     'proj.sinok.stat1': 'Entry Booking',
     'proj.sinok.stat2': 'Transactions',
     'proj.sinok.stat3': 'Projected Occ.',
+    'proj.next.badge': 'Coming Next',
+    'proj.next.title': 'Power BI Analytics & Forecasting',
+    'proj.next.desc': 'Preparing a second case study using Power BI for deeper analytics & forecasting — from SME financial data to immediately actionable insights.',
 
     'exp.tag': 'Experience',
     'exp.title': 'Career Journey',
@@ -106,12 +112,15 @@ const translations = {
     'nav.contact': 'Kontak',
 
     'hero.eyebrow': 'Halo, saya',
-    'hero.bio': 'Saya mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti — membangun sistem machine learning, merancang model prediktif, dan mendeploy solusi AI yang memberikan dampak nyata.',
+    'hero.role': 'Data & Automation Specialist',
+    'hero.bio': 'Saya ubah data operasional yang berantakan — booking, transaksi, catatan harian — jadi dashboard, otomasi, dan proyeksi yang langsung bisa dipakai. Fokus untuk UMKM dan bisnis kecil yang masih kerja manual.',
     'hero.cta1': 'Lihat Karya Saya',
     'hero.cta2': 'Hubungi Saya',
-    'hero.stat1': 'Proyek',
-    'hero.stat2': 'Tahun Pengalaman',
-    'hero.stat3': 'Klien',
+    'hero.stat1': 'Studi Kasus End-to-End',
+    'hero.stat2': '3 Fase: Dashboard · Otomasi · Forecasting',
+    'hero.stat3': 'Open for Freelance',
+    'hero.badge1': 'Automation First',
+    'hero.badge2': 'Data Driven',
 
     'about.tag': 'Tentang',
     'about.title': 'Tentang Saya',
@@ -145,6 +154,9 @@ const translations = {
     'proj.sinok.stat1': 'Entry Booking',
     'proj.sinok.stat2': 'Transaksi',
     'proj.sinok.stat3': 'Proyeksi Occ.',
+    'proj.next.badge': 'Coming Next',
+    'proj.next.title': 'Power BI Analytics & Forecasting',
+    'proj.next.desc': 'Sedang menyiapkan studi kasus kedua dengan Power BI untuk analytics & forecasting yang lebih dalam — dari data keuangan UMKM ke insight yang bisa langsung dipakai.',
 
     'exp.tag': 'Pengalaman',
     'exp.title': 'Perjalanan Karier',
@@ -337,6 +349,7 @@ const heroObserver = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       document.querySelectorAll('.stat__num').forEach(el => {
         const val = parseInt(el.textContent);
+        if (isNaN(val)) return;
         const suffix = el.textContent.replace(/\d+/, '');
         el.dataset.suffix = suffix;
         el.textContent = '0' + suffix;
