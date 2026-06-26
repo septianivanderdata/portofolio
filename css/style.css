@@ -306,6 +306,35 @@ section { padding: 96px 0; }
   height: 40px;
   background: var(--border);
 }
+.stat__text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.01em;
+}
+
+.project-card--next {
+  border: 2px dashed var(--border);
+  background: var(--white);
+  opacity: 0.85;
+}
+.project-card--next:hover {
+  border-color: var(--blue);
+  opacity: 1;
+}
+.project-next__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 220px;
+  padding: 32px 24px;
+}
+.project-next__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
 
 /* Hero visual */
 .hero__visual {
