@@ -58,6 +58,7 @@ const translations = {
     'proj.powerbi.stat1': 'Total Revenue',
     'proj.powerbi.stat2': 'Return Value Identified',
     'proj.powerbi.stat3': 'Return Rate',
+    'proj.powerbi.cta': 'View Case Study →',
 
     'exp.tag': 'Experience',
     'exp.title': 'Career Journey',
@@ -165,6 +166,7 @@ const translations = {
     'proj.powerbi.stat1': 'Total Revenue',
     'proj.powerbi.stat2': 'Nilai Retur Teridentifikasi',
     'proj.powerbi.stat3': 'Return Rate',
+    'proj.powerbi.cta': 'Lihat Case Study →',
 
     'exp.tag': 'Pengalaman',
     'exp.title': 'Perjalanan Karier',

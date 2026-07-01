@@ -262,41 +262,22 @@
           </div>
         </article>
 
-        <article class="project-card project-card--wide" data-category="data bi" data-id="powerbi">
-          <div class="project-card__header">
-            <span class="project-tag">Data Analysis &amp; Business Intelligence</span>
-            <div class="project-card__links">
-              <a href="#" title="GitHub" aria-label="View on GitHub">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-              <a href="#" title="Live Demo" aria-label="View Live Demo">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
+        <article
+          class="project-card js-project-card"
+          data-category="data bi"
+          data-modal-target="#powerbi-modal"
+          role="button"
+          tabindex="0"
+          aria-label="Lihat detail project Retail Sales Intelligence"
+        >
+          <div class="project-card__simple-body">
+            <div class="project-tag">Data Analysis · Business Intelligence</div>
+            <h3 data-i18n="proj.powerbi.title">Retail Sales Intelligence — Power BI Dashboard</h3>
+            <p data-i18n="proj.powerbi.desc">£9.79M in revenue. 23K transactions. One dashboard that reveals where the money flows — and where it leaks.</p>
+            <div class="project-card__tech">
+              <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span>
             </div>
-          </div>
-          <div class="project-sinok-layout">
-            <div class="project-sinok__thumb">
-              <img src="assets/powerbi-overview.png" alt="Power BI Sales Dashboard" class="project-thumb" />
-            </div>
-            <div class="project-card__body">
-              <div class="featured-badge" data-i18n="proj.powerbi.badge">Featured Project</div>
-              <h3 data-i18n="proj.powerbi.title">Retail Sales Intelligence — Power BI Dashboard</h3>
-              <p data-i18n="proj.powerbi.desc">£9.79M in revenue. 23K transactions. One dashboard that reveals where the money flows — and where it leaks. Built to show exactly what a business owner needs to stop guessing and start deciding.</p>
-              <div class="project-results">
-                <div class="result">
-                  <strong>£9.79M</strong><span data-i18n="proj.powerbi.stat1">Total Revenue</span>
-                </div>
-                <div class="result">
-                  <strong>£478K</strong><span data-i18n="proj.powerbi.stat2">Return Value Identified</span>
-                </div>
-                <div class="result">
-                  <strong>5.13%</strong><span data-i18n="proj.powerbi.stat3">Return Rate</span>
-                </div>
-              </div>
-              <div class="project-card__tech">
-                <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span>
-              </div>
-            </div>
+            <div class="project-cta" data-i18n="proj.powerbi.cta">View Case Study →</div>
           </div>
         </article>
 
@@ -521,6 +502,92 @@
       </div>
     </div>
   </footer>
+
+  <!-- POWERBI MODAL -->
+  <div id="powerbi-modal" class="project-modal" aria-hidden="true">
+    <div class="project-modal-overlay" data-close-modal></div>
+    <section class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="powerbi-modal-title">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+      <span class="project-tag">Data Analysis · Business Intelligence</span>
+      <h2 id="powerbi-modal-title" data-i18n="proj.powerbi.title">Retail Sales Intelligence — Power BI Dashboard</h2>
+      <div class="modal-actions">
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">Live Demo</a>
+      </div>
+
+      <h4>Overview</h4>
+      <p class="sinok-modal__para">Dashboard Power BI dua halaman yang mengubah lebih dari 23.000 transaksi retail menjadi keputusan bisnis yang jelas. Halaman Overview menampilkan performa revenue keseluruhan, tren bulanan, distribusi geografis, dan produk terlaris. Halaman Customer &amp; Retur membedah siapa pelanggan terbaik, di mana retur paling banyak terjadi, dan bagaimana polanya berubah dari waktu ke waktu.</p>
+
+      <h4>Problem</h4>
+      <div class="problem-box">
+        <p>Kebanyakan bisnis retail punya ribuan transaksi setiap bulan — tapi datanya tersimpan di spreadsheet terpisah, tidak ada yang tahu produk mana yang paling sering diretur, pelanggan mana yang paling bernilai, atau bulan mana yang paling lemah. Keputusan dibuat berdasarkan feeling, bukan angka. Dan selama itu, uang terus bocor diam-diam.</p>
+      </div>
+
+      <h4>Value Proposition</h4>
+      <div class="value-grid">
+        <div>
+          <h5>Revenue Visibility</h5>
+          <p>Satu tampilan tunggal untuk £9.79M revenue dari 23K transaksi — dipilah per bulan, per negara, per produk, dalam hitungan detik.</p>
+        </div>
+        <div>
+          <h5>Return Intelligence</h5>
+          <p>Menemukan £478K yang "hilang" akibat retur 5.13% — siapa yang retur, dari mana, dan kapan polanya terjadi.</p>
+        </div>
+        <div>
+          <h5>Customer Intelligence</h5>
+          <p>Top 10 pelanggan menyumbang £1.37M. 93.92% transaksi dari guest, bukan member — peluang loyalty program yang nyata.</p>
+        </div>
+      </div>
+
+      <h4 data-i18n="modal.gallery">Gallery</h4>
+      <div class="sinok-gallery">
+        <div class="sinok-gallery__item" data-src="assets/powerbi-overview.png" data-caption="Overview — Revenue, Trend, Geographic &amp; Product Breakdown">
+          <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" />
+          <span class="sinok-gallery__caption">Overview — Revenue, Trend, Geographic &amp; Product</span>
+        </div>
+        <div class="sinok-gallery__item" data-src="assets/powerbi-customer-retur.png" data-caption="Customer &amp; Retur — Return Intelligence &amp; Customer Segmentation">
+          <img src="assets/powerbi-customer-retur.png" alt="Customer & Retur Dashboard" loading="lazy" />
+          <span class="sinok-gallery__caption">Customer &amp; Retur — Return Intelligence &amp; Segmentation</span>
+        </div>
+      </div>
+
+      <h4 data-i18n="modal.highlights">Highlights</h4>
+      <ul class="sinok-modal__list">
+        <li>Revenue £9.79M dari 23K transaksi tumbuh +5% dibanding periode sebelumnya.</li>
+        <li>Ditemukan £478.72K retur tersembunyi — 5.13% return rate yang selama ini tidak termonitor.</li>
+        <li>93.92% transaksi dilakukan oleh guest (non-member) — celah besar untuk program loyalitas.</li>
+        <li>UK adalah pasar terbesar sekaligus negara dengan return tertinggi — butuh strategi berbeda.</li>
+        <li>Top 10 pelanggan menyumbang £1.37M — segmen VIP yang bisa ditarget retensi.</li>
+        <li>Dashboard interaktif: filter per tahun, negara, dan tipe pelanggan — drill down dalam hitungan detik.</li>
+        <li>Tren bulanan memperlihatkan puncak penjualan Desember 2011 sebagai periode terkuat.</li>
+      </ul>
+
+      <h4 data-i18n="modal.results">Results</h4>
+      <div class="result-grid">
+        <div>
+          <strong>£9.79M</strong>
+          <span data-i18n="proj.powerbi.stat1">Total Revenue</span>
+        </div>
+        <div>
+          <strong>23K</strong>
+          <span>Total Transaksi</span>
+        </div>
+        <div>
+          <strong>£478K</strong>
+          <span data-i18n="proj.powerbi.stat2">Return Value Identified</span>
+        </div>
+        <div>
+          <strong>£1.37M</strong>
+          <span>Sales dari Top 10 Customer</span>
+        </div>
+      </div>
+
+      <h4 data-i18n="modal.tech">Tech Stack</h4>
+      <div class="project-card__tech">
+        <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span><span>Data Analysis</span>
+      </div>
+    </section>
+  </div>
 
   <!-- SINOK MODAL -->
   <div id="sinok-modal" class="project-modal" aria-hidden="true">
