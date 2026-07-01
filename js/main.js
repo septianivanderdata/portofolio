@@ -41,16 +41,17 @@ const translations = {
     'projects.tag': 'Projects',
     'projects.title': 'Featured Work',
     'projects.filter.all': 'All',
-    'projects.filter.ml': 'Machine Learning',
-    'projects.filter.cv': 'Computer Vision',
     'projects.filter.data': 'Data Analysis',
+    'projects.filter.bi': 'Business Intelligence',
+    'projects.filter.automation': 'Automation',
 
     'proj.sinok.badge': 'Featured Project',
     'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting',
-    'proj.sinok.desc': 'End-to-end data & automation system for a homestay business (simulation project): automated booking via Telegram bot, double-booking prevention across all OTAs, interactive occupancy dashboard, and monthly revenue forecasts. Tested on 784 simulated transactions (Jun 2024–Jun 2026).',
+    'proj.sinok.desc': 'Automation and business intelligence system to help homestay businesses record bookings, reduce double-booking risk, monitor occupancy, and project monthly revenue.',
     'proj.sinok.stat1': 'Entry Booking',
     'proj.sinok.stat2': 'Transactions',
     'proj.sinok.stat3': 'Projected Occ.',
+    'proj.sinok.cta': 'View Case Study →',
     'proj.powerbi.badge': 'Featured Project',
     'proj.powerbi.title': 'Retail Sales Intelligence — Power BI Dashboard',
     'proj.powerbi.desc': '£9.79M in revenue. 23K transactions. One dashboard that reveals where the money flows — and where it leaks. Built to show exactly what a business owner needs to stop guessing and start deciding.',
@@ -147,16 +148,17 @@ const translations = {
     'projects.tag': 'Proyek',
     'projects.title': 'Karya Unggulan',
     'projects.filter.all': 'Semua',
-    'projects.filter.ml': 'Machine Learning',
-    'projects.filter.cv': 'Computer Vision',
     'projects.filter.data': 'Analisis Data',
+    'projects.filter.bi': 'Business Intelligence',
+    'projects.filter.automation': 'Automation',
 
     'proj.sinok.badge': 'Proyek Unggulan',
     'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting',
-    'proj.sinok.desc': 'Sistem data & otomasi end-to-end untuk bisnis homestay (proyek simulasi): pencatatan booking otomatis via Telegram bot, pencegahan double booking di semua OTA, dashboard okupansi interaktif, dan proyeksi revenue bulanan. Diuji pada 784 data transaksi simulasi (Jun 2024–Jun 2026).',
+    'proj.sinok.desc': 'Sistem otomasi dan business intelligence untuk membantu bisnis homestay mencatat booking, mengurangi risiko double booking, memantau okupansi, dan memproyeksikan revenue bulanan.',
     'proj.sinok.stat1': 'Entry Booking',
     'proj.sinok.stat2': 'Transaksi',
     'proj.sinok.stat3': 'Proyeksi Occ.',
+    'proj.sinok.cta': 'Lihat Case Study →',
     'proj.powerbi.badge': 'Proyek Unggulan',
     'proj.powerbi.title': 'Retail Sales Intelligence — Power BI Dashboard',
     'proj.powerbi.desc': '£9,79 juta revenue. 23 ribu transaksi. Satu dashboard yang mengungkap ke mana uang mengalir — dan di mana bocornya. Dibuat agar pemilik bisnis bisa berhenti menebak dan mulai memutuskan berdasarkan data.',
@@ -321,7 +323,7 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     projectCards.forEach(card => {
-      const show = filter === 'all' || card.dataset.category === filter;
+      const show = filter === 'all' || card.dataset.category.split(' ').includes(filter);
       card.classList.toggle('hidden', !show);
     });
   });
@@ -530,4 +532,65 @@ document.querySelectorAll('.project-card[data-id]').forEach(card => {
 
 modalClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeSinokModal(); } });
+
+// ─── Sinok Modal (dedicated modal pattern) ───────────────────────
+function openSinokModal(selector) {
+  const modal = document.querySelector(selector);
+  if (!modal) return;
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}
+
+function closeSinokModal() {
+  const active = document.querySelector('.project-modal.is-open');
+  if (!active) return;
+  active.classList.remove('is-open');
+  active.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+
+document.querySelectorAll('.js-project-card').forEach(card => {
+  card.addEventListener('click', () => openSinokModal(card.dataset.modalTarget));
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openSinokModal(card.dataset.modalTarget);
+    }
+  });
+});
+
+document.querySelectorAll('[data-close-modal]').forEach(btn => {
+  btn.addEventListener('click', closeSinokModal);
+});
+
+// ─── Sinok Gallery Lightbox ──────────────────────────────────────
+(function () {
+  const lightbox = document.getElementById('sinok-lightbox');
+  const lbImg = lightbox.querySelector('.sinok-lightbox__img');
+  const lbCaption = lightbox.querySelector('.sinok-lightbox__caption');
+  const lbClose = lightbox.querySelector('.sinok-lightbox__close');
+  const lbOverlay = lightbox.querySelector('.sinok-lightbox__overlay');
+
+  function openLightbox(src, caption) {
+    lbImg.src = src;
+    lbImg.alt = caption;
+    lbCaption.textContent = caption;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('.sinok-gallery__item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(item.dataset.src, item.dataset.caption));
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbOverlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+})();

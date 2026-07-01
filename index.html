@@ -237,52 +237,32 @@
       </div>
       <div class="projects__filter">
         <button class="filter-btn active" data-filter="all" data-i18n="projects.filter.all">All</button>
-        <button class="filter-btn" data-filter="ml" data-i18n="projects.filter.ml">Machine Learning</button>
-        <button class="filter-btn" data-filter="nlp">NLP</button>
-        <button class="filter-btn" data-filter="cv" data-i18n="projects.filter.cv">Computer Vision</button>
         <button class="filter-btn" data-filter="data" data-i18n="projects.filter.data">Data Analysis</button>
+        <button class="filter-btn" data-filter="bi" data-i18n="projects.filter.bi">Business Intelligence</button>
+        <button class="filter-btn" data-filter="automation" data-i18n="projects.filter.automation">Automation</button>
       </div>
       <div class="projects__grid">
 
-        <article class="project-card project-card--wide" data-category="data" data-id="sinok">
-          <div class="project-card__header">
-            <span class="project-tag">Data Analysis &amp; Automation</span>
-            <div class="project-card__links">
-              <a href="#" title="GitHub" aria-label="View on GitHub">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-              <a href="#" title="Live Demo" aria-label="View Live Demo">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
+        <article
+          class="project-card js-project-card"
+          data-category="data automation"
+          data-modal-target="#sinok-modal"
+          role="button"
+          tabindex="0"
+          aria-label="Lihat detail project Sinok Homestay"
+        >
+          <div class="project-card__simple-body">
+            <div class="project-tag">Automation · Business Intelligence</div>
+            <h3 data-i18n="proj.sinok.title">Sinok Homestay — Booking &amp; Forecasting System</h3>
+            <p data-i18n="proj.sinok.desc">Automation and business intelligence system to help homestay businesses record bookings, reduce double-booking risk, monitor occupancy, and project monthly revenue.</p>
+            <div class="project-card__tech">
+              <span>Google Sheets</span><span>n8n</span><span>Telegram Bot</span><span>Python</span>
             </div>
-          </div>
-          <div class="project-sinok-layout">
-            <div class="project-sinok__thumb">
-              <img src="assets/sinok-dashboard.png" alt="Sinok Dashboard" class="project-thumb" />
-            </div>
-            <div class="project-card__body">
-              <div class="featured-badge" data-i18n="proj.sinok.badge">Featured Project</div>
-              <h3 data-i18n="proj.sinok.title">Sinok Homestay — Booking &amp; Forecasting</h3>
-              <p data-i18n="proj.sinok.desc">Sistem data end-to-end untuk homestay: pencatatan booking otomatis via chat, pencegahan double booking di semua OTA, dan proyeksi okupansi &amp; revenue bulanan. Diuji pada 784 data simulasi.</p>
-              <div class="project-results">
-                <div class="result">
-                  <strong>&lt;1 mnt</strong><span data-i18n="proj.sinok.stat1">Entry Booking</span>
-                </div>
-                <div class="result">
-                  <strong>784</strong><span data-i18n="proj.sinok.stat2">Transaksi</span>
-                </div>
-                <div class="result">
-                  <strong>54.34%</strong><span data-i18n="proj.sinok.stat3">Proyeksi Occ.</span>
-                </div>
-              </div>
-              <div class="project-card__tech">
-                <span>Google Sheets</span><span>n8n</span><span>Telegram Bot</span><span>Python</span><span>Dashboard</span>
-              </div>
-            </div>
+            <div class="project-cta" data-i18n="proj.sinok.cta">View Case Study →</div>
           </div>
         </article>
 
-        <article class="project-card project-card--wide" data-category="data" data-id="powerbi">
+        <article class="project-card project-card--wide" data-category="data bi" data-id="powerbi">
           <div class="project-card__header">
             <span class="project-tag">Data Analysis &amp; Business Intelligence</span>
             <div class="project-card__links">
@@ -541,6 +521,141 @@
       </div>
     </div>
   </footer>
+
+  <!-- SINOK MODAL -->
+  <div id="sinok-modal" class="project-modal" aria-hidden="true">
+    <div class="project-modal-overlay" data-close-modal></div>
+    <section class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="sinok-modal-title">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+      <span class="project-tag">Automation · BI Dashboard · Forecasting</span>
+      <h2 id="sinok-modal-title" data-i18n="proj.sinok.title">Sinok Homestay — Booking &amp; Forecasting System</h2>
+      <div class="modal-actions">
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">Live Demo</a>
+      </div>
+
+      <h4>Overview</h4>
+      <p class="sinok-modal__para">Sinok Homestay adalah project simulasi sistem data dan otomasi untuk bisnis homestay. Project ini dibuat untuk menjawab masalah umum pada usaha penginapan kecil: data booking masih tersebar di chat, buku catatan, dan beberapa platform OTA, sehingga sulit dipantau secara cepat dan rawan terjadi double booking.</p>
+      <p class="sinok-modal__para">Melalui sistem ini, booking dapat dicatat lewat Telegram Bot, tersimpan otomatis ke Google Sheets, memicu reminder update OTA, lalu divisualisasikan dalam dashboard okupansi dan revenue. Data historis juga digunakan untuk membuat proyeksi okupansi dan pendapatan bulan berikutnya.</p>
+
+      <h4>Problem</h4>
+      <div class="problem-box">
+        <p>Banyak usaha homestay memiliki data operasional yang sebenarnya kaya insight, tetapi belum dimanfaatkan karena pencatatan masih manual. Admin sering menerima booking dari berbagai channel seperti Traveloka, Agoda, Booking.com, atau direct order, namun data tersebut tidak selalu tercatat dalam satu sistem yang rapi.</p>
+        <p style="margin-top:8px">Akibatnya, pemilik sulit mengetahui performa okupansi, channel mana yang paling efektif, kapan periode ramai/sepi, serta berapa potensi revenue bulan berikutnya. Risiko lain yang muncul adalah keterlambatan update ketersediaan kamar di OTA, sehingga peluang double booking menjadi lebih besar.</p>
+      </div>
+
+      <h4>Solution</h4>
+      <p class="sinok-modal__para">Project ini membangun alur sederhana namun end-to-end: admin cukup memasukkan booking melalui format command di Telegram Bot. Data booking kemudian divalidasi, disimpan ke Google Sheets, dan langsung memicu pesan pengingat agar admin memperbarui ketersediaan kamar di semua OTA.</p>
+      <p class="sinok-modal__para">Data yang terkumpul digunakan untuk membuat dashboard analisis okupansi, revenue, sumber booking, rata-rata lama tinggal, harga per malam, serta tren musiman. Selain itu, sistem juga menghitung proyeksi okupansi dan revenue untuk bulan berikutnya berdasarkan pola historis.</p>
+
+      <h4>Workflow</h4>
+      <div class="sinok-workflow">
+        <div class="sinok-workflow__flow">
+          <span>Telegram Bot</span><span class="sinok-workflow__arrow">→</span>
+          <span>n8n Workflow</span><span class="sinok-workflow__arrow">→</span>
+          <span>Google Sheets</span><span class="sinok-workflow__arrow">→</span>
+          <span>Dashboard</span><span class="sinok-workflow__arrow">→</span>
+          <span>Forecast</span>
+        </div>
+        <ol class="sinok-workflow__steps">
+          <li>Admin mengirim command booking melalui Telegram.</li>
+          <li>Bot memvalidasi format input, tipe kamar, tanggal, channel, dan nominal booking.</li>
+          <li>Data booking otomatis masuk ke Google Sheets.</li>
+          <li>Sistem mengirim reminder agar admin memperbarui ketersediaan kamar di OTA.</li>
+          <li>Dashboard membaca data booking untuk menampilkan performa okupansi dan revenue.</li>
+          <li>Forecast menghitung estimasi okupansi dan pendapatan bulan berikutnya.</li>
+        </ol>
+      </div>
+
+      <h4>Value Proposition</h4>
+      <div class="value-grid">
+        <div>
+          <h5>Visibility</h5>
+          <p>Dashboard mengubah data booking mentah menjadi informasi yang mudah dibaca: tren okupansi, revenue, channel booking, harga, dan pola musiman.</p>
+        </div>
+        <div>
+          <h5>Otomasi</h5>
+          <p>Booking baru bisa dicatat lewat satu baris command chat dan langsung tersimpan ke database, tanpa perlu membuka laptop atau menginput manual berkali-kali.</p>
+        </div>
+        <div>
+          <h5>Foresight</h5>
+          <p>Data historis digunakan untuk memperkirakan okupansi dan revenue bulan berikutnya, sehingga pemilik homestay dapat mengambil keputusan lebih cepat.</p>
+        </div>
+      </div>
+
+      <h4 data-i18n="modal.gallery">Gallery</h4>
+      <div class="sinok-gallery">
+        <div class="sinok-gallery__item" data-src="assets/sinok-workflow.png" data-caption="n8n Automation Workflow">
+          <img src="assets/sinok-workflow.png" alt="n8n Automation Workflow" loading="lazy" />
+          <span class="sinok-gallery__caption">n8n Automation Workflow</span>
+        </div>
+        <div class="sinok-gallery__item" data-src="assets/sinok-dashboard.png" data-caption="Dashboard Analisa Okupansi">
+          <img src="assets/sinok-dashboard.png" alt="Dashboard Analisa Okupansi" loading="lazy" />
+          <span class="sinok-gallery__caption">Dashboard Analisa Okupansi</span>
+        </div>
+        <div class="sinok-gallery__item" data-src="assets/sinok-forecast.png" data-caption="Prediksi Occupancy &amp; Revenue">
+          <img src="assets/sinok-forecast.png" alt="Prediksi Occupancy & Revenue" loading="lazy" />
+          <span class="sinok-gallery__caption">Prediksi Occupancy &amp; Revenue</span>
+        </div>
+        <div class="sinok-gallery__item" data-src="assets/sinok-bot.png" data-caption="Telegram Bot Booking Flow">
+          <img src="assets/sinok-bot.png" alt="Telegram Bot Booking Flow" loading="lazy" />
+          <span class="sinok-gallery__caption">Telegram Bot Booking Flow</span>
+        </div>
+      </div>
+
+      <h4 data-i18n="modal.highlights">Highlights</h4>
+      <ul class="sinok-modal__list">
+        <li>Booking baru tercatat ke Google Sheets dalam &lt;1 menit via satu baris command chat.</li>
+        <li>Setiap booking otomatis memicu reminder ke semua OTA lain seperti Traveloka, Agoda, dan Booking.com.</li>
+        <li>Telegram Bot memvalidasi format input, tipe kamar, tanggal, channel, dan membuat Booking ID unik.</li>
+        <li>Dashboard interaktif menampilkan harga vs okupansi, peta musiman, sumber booking, okupansi per hari, dan revenue.</li>
+        <li>Proyeksi okupansi dan revenue bulan depan dihitung otomatis dari tren historis.</li>
+        <li>Diuji pada 784 data transaksi simulasi sepanjang Juni 2024–Juni 2026.</li>
+      </ul>
+
+      <h4 data-i18n="modal.results">Results</h4>
+      <div class="result-grid">
+        <div>
+          <strong>&lt;1 mnt</strong>
+          <span>Entry Booking</span>
+        </div>
+        <div>
+          <strong>784</strong>
+          <span>Data Transaksi Simulasi</span>
+        </div>
+        <div>
+          <strong>54.34%</strong>
+          <span>Proyeksi Occ. Jul 2026</span>
+        </div>
+        <div>
+          <strong>Rp39,4 Jt</strong>
+          <span>Proyeksi Revenue Jul 2026</span>
+        </div>
+      </div>
+      <p class="sinok-note">Note: data yang digunakan adalah data simulasi untuk kebutuhan pengembangan portofolio.</p>
+
+      <div class="sinok-caveat">
+        <strong>⚠ Limitasi Teknis</strong>
+        <p>Perhitungan okupansi masih menggunakan pendekatan flat per bulan dan belum sepenuhnya prorata untuk booking lintas bulan. Selain itu, sebagian data uji masih berupa data simulasi.</p>
+        <p>Pengembangan berikutnya diarahkan pada perhitungan sisa kamar secara real-time, validasi ketersediaan berdasarkan tanggal check-in/check-out, serta forecast yang lebih adaptif terhadap musim liburan dan pola pemesanan mendadak.</p>
+      </div>
+
+      <h4 data-i18n="modal.tech">Tech Stack</h4>
+      <div class="project-card__tech">
+        <span>Google Sheets</span><span>n8n</span><span>Telegram Bot API</span><span>Python</span><span>Dashboard</span><span>Automation</span><span>Forecasting</span><span>Data Cleaning</span><span>Workflow Automation</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- SINOK LIGHTBOX -->
+  <div id="sinok-lightbox" class="sinok-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="sinok-lightbox__overlay"></div>
+    <div class="sinok-lightbox__content">
+      <button class="sinok-lightbox__close" aria-label="Close">&times;</button>
+      <img class="sinok-lightbox__img" src="" alt="" />
+      <p class="sinok-lightbox__caption"></p>
+    </div>
+  </div>
 
   <!-- PROJECT MODAL -->
   <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
