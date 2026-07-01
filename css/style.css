@@ -1548,6 +1548,379 @@ section { padding: 96px 0; }
 .project-card { cursor: pointer; }
 .project-card:hover .project-card__body h3 { color: var(--blue); }
 
+/* ── Simple clickable card (Sinok) ── */
+.project-card.js-project-card {
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.project-card.js-project-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+.project-card.js-project-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.project-card__simple-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+.project-card__simple-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--slate);
+  line-height: 1.4;
+}
+.project-card.js-project-card:hover .project-card__simple-body h3 { color: var(--blue); }
+.project-card__simple-body p {
+  font-size: 0.9rem;
+  color: var(--slate-mid);
+  line-height: 1.6;
+}
+.project-cta {
+  margin-top: auto;
+  padding-top: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 0.9rem;
+}
+
+/* ── Sinok Project Modal ── */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+}
+.project-modal.is-open { display: block; }
+.project-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+}
+.project-modal-content {
+  position: relative;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 5vh auto;
+  padding: 42px;
+  background: var(--white);
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
+}
+.project-modal-content::-webkit-scrollbar { width: 5px; }
+.project-modal-content::-webkit-scrollbar-track { background: transparent; }
+.project-modal-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+.modal-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 44px;
+  text-align: center;
+  color: var(--slate);
+}
+.modal-close:hover { background: var(--border); }
+body.modal-open { overflow: hidden; }
+.project-modal-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--slate);
+  margin: 12px 0 8px;
+  line-height: 1.3;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0 20px;
+}
+.modal-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  color: var(--slate);
+  transition: border-color var(--transition), color var(--transition);
+}
+.modal-actions a:hover { border-color: var(--blue); color: var(--blue); }
+.project-modal-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--slate);
+  margin: 20px 0 10px;
+}
+.problem-box {
+  background: var(--blue-light);
+  border-left: 3px solid var(--blue);
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--slate);
+}
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0;
+}
+.value-grid > div {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+.value-grid h5 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.value-grid p {
+  font-size: 0.85rem;
+  color: var(--slate-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+.sinok-modal__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sinok-modal__list li {
+  padding-left: 16px;
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--slate-mid);
+  line-height: 1.5;
+}
+.sinok-modal__list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 600;
+}
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 12px 0;
+}
+.result-grid > div {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.result-grid strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--slate);
+}
+.result-grid span {
+  font-size: 0.75rem;
+  color: var(--slate-mid);
+}
+.sinok-modal__para {
+  font-size: 0.9rem;
+  color: var(--slate-mid);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.problem-box p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--slate);
+}
+
+/* ── Sinok Workflow ── */
+.sinok-workflow {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 4px 0;
+}
+.sinok-workflow__flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.sinok-workflow__flow span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--slate);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+.sinok-workflow__arrow {
+  color: var(--blue) !important;
+  font-weight: 700 !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.sinok-workflow__steps {
+  list-style: decimal;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sinok-workflow__steps li {
+  font-size: 0.875rem;
+  color: var(--slate-mid);
+  line-height: 1.5;
+}
+
+/* ── Sinok Gallery ── */
+.sinok-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 4px 0;
+}
+.sinok-gallery__item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  border: 1px solid var(--border);
+}
+.sinok-gallery__item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.sinok-gallery__item:hover img { transform: scale(1.04); }
+.sinok-gallery__caption {
+  display: block;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  color: var(--slate-mid);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Sinok Note & Caveat ── */
+.sinok-note {
+  font-size: 0.78rem;
+  color: var(--slate-lt);
+  font-style: italic;
+  margin-top: 8px;
+}
+.sinok-caveat {
+  background: #FFF7ED;
+  border-left: 3px solid #F59E0B;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 16px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sinok-caveat strong {
+  font-size: 0.85rem;
+  color: #92400E;
+}
+.sinok-caveat p {
+  font-size: 0.85rem;
+  color: #78350F;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Sinok Lightbox ── */
+.sinok-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.sinok-lightbox.is-open { display: flex; }
+.sinok-lightbox__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.9);
+}
+.sinok-lightbox__content {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.sinok-lightbox__close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 22px;
+  line-height: 36px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.sinok-lightbox__close:hover { background: rgba(255,255,255,0.3); }
+.sinok-lightbox__img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.sinok-lightbox__caption {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .project-modal-content { margin: 0; border-radius: 20px 20px 0 0; max-height: 95vh; padding: 24px; }
+  .value-grid { grid-template-columns: 1fr; }
+  .result-grid { grid-template-columns: repeat(2, 1fr); }
+  .sinok-gallery { grid-template-columns: 1fr; }
+  .sinok-workflow__flow { gap: 4px; }
+}
+
 @media (max-width: 480px) {
   .modal__scroll { padding: 24px; }
   .modal__title { font-size: 1.25rem; }
