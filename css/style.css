@@ -1755,6 +1755,60 @@ body.modal-open { overflow: hidden; }
   color: var(--slate);
 }
 
+/* ── Power BI workflow flow ── */
+.pbi-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+.pbi-flow span {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pbi-flow i {
+  color: var(--slate-lt);
+  font-style: normal;
+  font-weight: 700;
+}
+.pbi-steps {
+  margin: 12px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pbi-steps li {
+  font-size: 0.9rem;
+  color: var(--slate-mid);
+  line-height: 1.6;
+  padding-left: 4px;
+}
+.pbi-steps li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+.warn-box {
+  background: #FFFBEB;
+  border-left: 3px solid #F59E0B;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+.warn-box p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #92400E;
+  margin: 0;
+}
+
 /* ── Sinok Workflow ── */
 .sinok-workflow {
   background: var(--bg);

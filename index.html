@@ -268,12 +268,12 @@
           data-modal-target="#powerbi-modal"
           role="button"
           tabindex="0"
-          aria-label="Lihat detail project Retail Sales Intelligence"
+          aria-label="Lihat detail project Retail Business Intelligence"
         >
           <div class="project-card__simple-body">
             <div class="project-tag">Data Analysis · Business Intelligence</div>
-            <h3 data-i18n="proj.powerbi.title">Retail Sales Intelligence — Power BI Dashboard</h3>
-            <p data-i18n="proj.powerbi.desc">£9.79M in revenue. 23K transactions. One dashboard that reveals where the money flows — and where it leaks.</p>
+            <h3 data-i18n="proj.powerbi.title">Retail Business Intelligence — Sales, Customer &amp; Return Analysis</h3>
+            <p data-i18n="proj.powerbi.desc">541K baris data mentah, dibersihkan sampai bisa dipercaya. Return Rate terkoreksi dari 4.88% ke 2.15% — dashboard 2 halaman yang mengutamakan kualitas data, bukan sekadar visual.</p>
             <div class="project-card__tech">
               <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span>
             </div>
@@ -516,75 +516,96 @@
       </div>
 
       <h4>Overview</h4>
-      <p class="sinok-modal__para">Dashboard Power BI dua halaman yang mengubah lebih dari 23.000 transaksi retail menjadi keputusan bisnis yang jelas. Halaman Overview menampilkan performa revenue keseluruhan, tren bulanan, distribusi geografis, dan produk terlaris. Halaman Customer &amp; Retur membedah siapa pelanggan terbaik, di mana retur paling banyak terjadi, dan bagaimana polanya berubah dari waktu ke waktu.</p>
+      <p class="sinok-modal__para">Dashboard analisis end-to-end berbasis Power BI menggunakan dataset transaksi e-commerce UK (UCI Online Retail, ±541K baris). Terdiri dari dua halaman — <strong>Overview</strong> untuk performa penjualan, dan <strong>Customer &amp; Return</strong> untuk analisis pelanggan serta retur produk.</p>
+      <p class="sinok-modal__para">Fokus utama bukan sekadar visualisasi, tapi keseluruhan proses data analyst: pembersihan data mentah di Power Query, pemodelan star schema, pembuatan measure DAX, hingga validasi kualitas data — agar angka yang ditampilkan benar-benar bisa dipercaya untuk pengambilan keputusan.</p>
 
       <h4>Problem</h4>
       <div class="problem-box">
-        <p>Kebanyakan bisnis retail punya ribuan transaksi setiap bulan — tapi datanya tersimpan di spreadsheet terpisah, tidak ada yang tahu produk mana yang paling sering diretur, pelanggan mana yang paling bernilai, atau bulan mana yang paling lemah. Keputusan dibuat berdasarkan feeling, bukan angka. Dan selama itu, uang terus bocor diam-diam.</p>
+        <p>Data transaksi mentah e-commerce hampir selalu menyimpan jebakan yang membuat analisis menyesatkan jika langsung divisualisasikan: transaksi anomali ekstrem (order 80.995 unit yang dibatalkan 12 menit kemudian), retur tanpa penjualan padanan, transaksi non-produk (biaya pos, bank charges), deskripsi kosong, serta harga nol. Tanpa pembersihan, metrik seperti Return Rate terdistorsi lebih dari dua kali lipat.</p>
+        <p style="margin-top:10px">Agregasi per negara dengan sampel kecil juga menghasilkan persentase yang tampak dramatis tapi tidak reliable secara statistik — risiko nyata salah pengambilan keputusan bisnis.</p>
       </div>
+
+      <h4>Solution</h4>
+      <p class="sinok-modal__para">Membangun pipeline pembersihan data di Power Query (M language) yang menangani setiap masalah kualitas data secara sistematis, lalu memodelkan data ke <strong>star schema</strong> (Fact_Sales + Dim_Product, Dim_Customer, Dim_Date) untuk performa dan fleksibilitas analisis. Di atasnya dibuat measure DAX untuk metrik penjualan, analisis retur, pertumbuhan month-over-month dengan label &amp; warna dinamis, serta teks insight otomatis. Visual yang rawan misleading diberi guard-rail statistik — misal filter minimum 100 transaksi pada Return Rate per negara.</p>
+
+      <h4>Workflow</h4>
+      <div class="pbi-flow">
+        <span>Raw CSV</span><i>→</i><span>Power Query (Cleaning)</span><i>→</i><span>Star Schema</span><i>→</i><span>DAX Measures</span><i>→</i><span>2-Page Dashboard</span>
+      </div>
+      <ol class="pbi-steps">
+        <li>Import data mentah (541K baris) dan profiling kualitas kolom.</li>
+        <li>Pembersihan: hapus transaksi non-produk, harga nol, deskripsi kosong (fill-down per StockCode), standardisasi StockCode.</li>
+        <li>Investigasi outlier: identifikasi pasangan order–cancel ekstrem via sorting &amp; pairing InvoiceNo, lalu exclude dengan threshold kuantitas absolut.</li>
+        <li>Pemodelan star schema dengan tiga dimension table.</li>
+        <li>Pembuatan measure DAX: revenue, AOV, return rate, MoM growth, dynamic insight text.</li>
+        <li>Desain dashboard dua halaman dengan slicer Year &amp; Country, plus filter statistik pada visual retur.</li>
+      </ol>
 
       <h4>Value Proposition</h4>
       <div class="value-grid">
         <div>
-          <h5>Revenue Visibility</h5>
-          <p>Satu tampilan tunggal untuk £9.79M revenue dari 23K transaksi — dipilah per bulan, per negara, per produk, dalam hitungan detik.</p>
+          <h5>Data Quality</h5>
+          <p>Deteksi &amp; koreksi anomali menurunkan distorsi Return Rate dari 4.88% menjadi 2.15% — selisih yang mengubah kesimpulan bisnis sepenuhnya.</p>
         </div>
         <div>
-          <h5>Return Intelligence</h5>
-          <p>Menemukan £478K yang "hilang" akibat retur 5.13% — siapa yang retur, dari mana, dan kapan polanya terjadi.</p>
+          <h5>Statistical Honesty</h5>
+          <p>Visual return rate per negara difilter minimum transaksi, agar persentase dari sampel kecil tidak menyesatkan pembaca dashboard.</p>
         </div>
         <div>
-          <h5>Customer Intelligence</h5>
-          <p>Top 10 pelanggan menyumbang £1.37M. 93.92% transaksi dari guest, bukan member — peluang loyalty program yang nyata.</p>
+          <h5>Actionable Insight</h5>
+          <p>Mengungkap konsentrasi revenue pada segelintir customer B2B, produk dengan return rate abnormal (kandidat audit kualitas), dan anomali retur pasar ekspor (USA 57.9%).</p>
         </div>
       </div>
 
       <h4 data-i18n="modal.gallery">Gallery</h4>
       <div class="sinok-gallery">
-        <div class="sinok-gallery__item" data-src="assets/powerbi-overview.png" data-caption="Overview — Revenue, Trend, Geographic &amp; Product Breakdown">
+        <div class="sinok-gallery__item" data-src="assets/powerbi-overview.png" data-caption="Overview — Sales Performance, Trend, Geographic &amp; Product Breakdown">
           <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" />
-          <span class="sinok-gallery__caption">Overview — Revenue, Trend, Geographic &amp; Product</span>
+          <span class="sinok-gallery__caption">Overview — Sales, Trend, Geographic &amp; Product</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/powerbi-customer-retur.png" data-caption="Customer &amp; Retur — Return Intelligence &amp; Customer Segmentation">
-          <img src="assets/powerbi-customer-retur.png" alt="Customer & Retur Dashboard" loading="lazy" />
-          <span class="sinok-gallery__caption">Customer &amp; Retur — Return Intelligence &amp; Segmentation</span>
+        <div class="sinok-gallery__item" data-src="assets/powerbi-customer-retur.png" data-caption="Customer &amp; Return — Return Intelligence &amp; Customer Segmentation">
+          <img src="assets/powerbi-customer-retur.png" alt="Customer & Return Dashboard" loading="lazy" />
+          <span class="sinok-gallery__caption">Customer &amp; Return — Return Intelligence &amp; Segmentation</span>
         </div>
       </div>
 
       <h4 data-i18n="modal.highlights">Highlights</h4>
       <ul class="sinok-modal__list">
-        <li>Revenue £9.79M dari 23K transaksi tumbuh +5% dibanding periode sebelumnya.</li>
-        <li>Ditemukan £478.72K retur tersembunyi — 5.13% return rate yang selama ini tidak termonitor.</li>
-        <li>93.92% transaksi dilakukan oleh guest (non-member) — celah besar untuk program loyalitas.</li>
-        <li>UK adalah pasar terbesar sekaligus negara dengan return tertinggi — butuh strategi berbeda.</li>
-        <li>Top 10 pelanggan menyumbang £1.37M — segmen VIP yang bisa ditarget retensi.</li>
-        <li>Dashboard interaktif: filter per tahun, negara, dan tipe pelanggan — drill down dalam hitungan detik.</li>
-        <li>Tren bulanan memperlihatkan puncak penjualan Desember 2011 sebagai periode terkuat.</li>
+        <li>Menemukan 2 pasang transaksi order–cancel ekstrem (80.995 &amp; 74.215 unit) yang mendistorsi total retur hampir £246K.</li>
+        <li>Pembersihan data menurunkan Total Return Value dari £478.72K menjadi £233.07K, dan Return Quantity dari 272K menjadi 117K.</li>
+        <li>8 customer teratas menyumbang ±14% dari total revenue £9.79M — sinyal konsentrasi risiko B2B.</li>
+        <li>Return Rate USA 57.9% (n=291) teridentifikasi sebagai sinyal genuine masalah cross-border, bukan noise sampel kecil.</li>
+        <li>Measure DAX dinamis: label pertumbuhan MoM dengan warna kondisional dan teks insight otomatis.</li>
       </ul>
 
       <h4 data-i18n="modal.results">Results</h4>
       <div class="result-grid">
         <div>
+          <strong>541K</strong>
+          <span>Baris data diproses</span>
+        </div>
+        <div>
           <strong>£9.79M</strong>
-          <span data-i18n="proj.powerbi.stat1">Total Revenue</span>
+          <span data-i18n="proj.powerbi.stat1">Total Revenue teranalisis</span>
         </div>
         <div>
-          <strong>23K</strong>
-          <span>Total Transaksi</span>
+          <strong>2.15%</strong>
+          <span data-i18n="proj.powerbi.stat2">Return Rate terkoreksi (dari 4.88%)</span>
         </div>
         <div>
-          <strong>£478K</strong>
-          <span data-i18n="proj.powerbi.stat2">Return Value Identified</span>
+          <strong>2 Pages</strong>
+          <span>Interactive Dashboard</span>
         </div>
-        <div>
-          <strong>£1.37M</strong>
-          <span>Sales dari Top 10 Customer</span>
-        </div>
+      </div>
+
+      <h4>⚠ Limitasi Teknis</h4>
+      <div class="warn-box">
+        <p>Dataset berakhir 9 Desember 2011, sehingga bulan terakhir bersifat parsial dan dikecualikan dari interpretasi tren. Threshold outlier (&gt;10.000 unit) dipilih berdasarkan gap distribusi kuantitas pada dataset ini dan perlu dikalibrasi ulang untuk dataset lain. CustomerID kosong dikategorikan sebagai "Guest" — asumsi yang belum tervalidasi terhadap sistem sumber.</p>
       </div>
 
       <h4 data-i18n="modal.tech">Tech Stack</h4>
       <div class="project-card__tech">
-        <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span><span>Data Analysis</span>
+        <span>Power BI</span><span>Power Query (M)</span><span>DAX</span><span>Star Schema</span><span>Data Cleaning</span><span>Data Modeling</span><span>Data Visualization</span>
       </div>
     </section>
   </div>
