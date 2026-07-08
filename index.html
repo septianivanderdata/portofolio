@@ -3,12 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Septian Ivander — Data & Automation Specialist</title>
+
+  <!-- Restore saved language before first paint to avoid an EN→ID flash. -->
+  <script>
+    (function () {
+      try {
+        var lang = localStorage.getItem('lang');
+        if (lang === 'id' || lang === 'en') {
+          document.documentElement.setAttribute('lang', lang);
+          document.documentElement.setAttribute('data-lang', lang);
+        }
+      } catch (e) { /* localStorage unavailable — keep the default */ }
+    })();
+  </script>
+
+  <title>Septian Ivander — Data &amp; Automation Specialist</title>
   <meta name="description" content="Portfolio of Septian Ivander — Data & Automation Specialist. Dashboard, workflow automation, and forecasting for SMEs." />
+  <meta name="author" content="Septian Ivander" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#2563EB" />
+  <link rel="canonical" href="https://septianivanderdata.github.io/portofolio/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Septian Ivander" />
+  <meta property="og:url" content="https://septianivanderdata.github.io/portofolio/" />
+  <meta property="og:title" content="Septian Ivander — Data &amp; Automation Specialist" />
+  <meta property="og:description" content="I turn messy operational data — bookings, transactions, daily records — into dashboards, automation, and forecasts SMEs can act on." />
+  <meta property="og:image" content="https://septianivanderdata.github.io/portofolio/assets/powerbi-overview.png" />
+  <meta property="og:image:alt" content="Power BI retail sales dashboard built by Septian Ivander" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="id_ID" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Septian Ivander — Data &amp; Automation Specialist" />
+  <meta name="twitter:description" content="Dashboards, workflow automation, and forecasting for SMEs." />
+  <meta name="twitter:image" content="https://septianivanderdata.github.io/portofolio/assets/powerbi-overview.png" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" as="image" href="assets/septian.webp" type="image/webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Septian Ivander",
+    "url": "https://septianivanderdata.github.io/portofolio/",
+    "image": "https://septianivanderdata.github.io/portofolio/assets/septian.webp",
+    "jobTitle": "Data & Automation Specialist",
+    "email": "mailto:septianivander.data@gmail.com",
+    "worksFor": { "@type": "Organization", "name": "Ministry of Finance, Republic of Indonesia" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Politeknik Keuangan Negara STAN" },
+      { "@type": "CollegeOrUniversity", "name": "Asia Cyber University" }
+    ],
+    "knowsAbout": ["Power BI", "DAX", "Data Modeling", "n8n", "Workflow Automation", "Google Sheets", "Looker Studio", "Python", "SQL"],
+    "sameAs": [
+      "https://github.com/septianivanderdata",
+      "https://www.linkedin.com/in/septian-ivander"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -16,7 +78,7 @@
   <nav class="nav" id="nav">
     <div class="nav__container">
       <a href="#home" class="nav__logo">SI<span>.</span></a>
-      <button class="nav__burger" id="burger" aria-label="Toggle menu">
+      <button class="nav__burger" id="burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="navLinks">
@@ -27,7 +89,7 @@
         <li><a href="#certs" data-i18n="nav.certs">Certs</a></li>
         <li><a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language">
         <span class="lang-toggle__active">EN</span>
         <span class="lang-toggle__sep">/</span>
         <span class="lang-toggle__other">ID</span>
@@ -70,7 +132,11 @@
       <div class="hero__visual">
         <div class="hero__avatar-wrap">
           <div class="hero__avatar">
-            <img src="assets/septian.png" alt="Septian Ivander" class="avatar__img" />
+            <picture>
+              <source srcset="assets/septian.webp" type="image/webp" />
+              <img src="assets/septian.png" alt="Septian Ivander" class="avatar__img"
+                   width="720" height="900" fetchpriority="high" decoding="async" />
+            </picture>
           </div>
           <div class="hero__badge hero__badge--top">
             <span class="badge__icon">⚡</span>
@@ -160,7 +226,8 @@
               </div>
             </li>
           </ul>
-          <a href="#" class="btn btn--primary btn--full" download data-i18n="about.cv">Download CV</a>
+          <a href="assets/cv-septian-ivander.pdf" class="btn btn--primary btn--full"
+             download="CV-Septian-Ivander.pdf" data-i18n="about.cv">Download CV</a>
         </div>
       </div>
     </div>
@@ -176,52 +243,52 @@
       <div class="skills__grid">
 
         <div class="skill-card">
-          <div class="skill-card__icon">🐍</div>
-          <h3>Python</h3>
-          <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:92%"></div></div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card__icon">🧠</div>
-          <h3>Machine Learning</h3>
-          <p>Regression, Classification, Clustering, Ensemble Methods</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:88%"></div></div>
-        </div>
-
-        <div class="skill-card">
           <div class="skill-card__icon">📊</div>
           <h3>Microsoft Power BI</h3>
-          <p>Dashboard, DAX, Data Modeling, Reporting</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:85%"></div></div>
+          <p>Dashboard, DAX, Power Query, Star Schema, Reporting</p>
+          <span class="skill-level skill-level--advanced" data-i18n="skills.level.advanced">Advanced</span>
         </div>
 
         <div class="skill-card">
           <div class="skill-card__icon">🗄️</div>
           <h3>Google Sheets</h3>
           <p>Advanced Formulas, Apps Script, Data Pipeline, Automation</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:88%"></div></div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card__icon">📈</div>
-          <h3>Looker Studio</h3>
-          <p>Interactive Dashboard, Data Blending, Reporting</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:80%"></div></div>
+          <span class="skill-level skill-level--advanced" data-i18n="skills.level.advanced">Advanced</span>
         </div>
 
         <div class="skill-card">
           <div class="skill-card__icon">⚡</div>
           <h3>n8n &amp; Automation</h3>
           <p>Workflow Automation, Telegram Bot API, Google Sheets API</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:83%"></div></div>
+          <span class="skill-level skill-level--advanced" data-i18n="skills.level.advanced">Advanced</span>
         </div>
 
         <div class="skill-card">
-          <div class="skill-card__icon">🗄️</div>
+          <div class="skill-card__icon">🐍</div>
+          <h3>Python</h3>
+          <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn</p>
+          <span class="skill-level skill-level--intermediate" data-i18n="skills.level.intermediate">Intermediate</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">📈</div>
+          <h3>Looker Studio</h3>
+          <p>Interactive Dashboard, Data Blending, Reporting</p>
+          <span class="skill-level skill-level--intermediate" data-i18n="skills.level.intermediate">Intermediate</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">🧠</div>
+          <h3>Machine Learning</h3>
+          <p>Regression, Classification, Clustering, Ensemble Methods</p>
+          <span class="skill-level skill-level--intermediate" data-i18n="skills.level.intermediate">Intermediate</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">🛢️</div>
           <h3>Data Engineering</h3>
           <p>SQL, PostgreSQL, ETL Pipelines, Data Cleaning</p>
-          <div class="skill-bar"><div class="skill-bar__fill" style="--w:80%"></div></div>
+          <span class="skill-level skill-level--intermediate" data-i18n="skills.level.intermediate">Intermediate</span>
         </div>
 
       </div>
@@ -249,7 +316,8 @@
           data-modal-target="#sinok-modal"
           role="button"
           tabindex="0"
-          aria-label="Lihat detail project Sinok Homestay"
+          data-i18n-aria="proj.sinok.aria"
+          aria-label="View the Sinok Homestay case study"
         >
           <div class="project-card__simple-body">
             <div class="project-tag">Automation · Business Intelligence</div>
@@ -268,12 +336,13 @@
           data-modal-target="#powerbi-modal"
           role="button"
           tabindex="0"
-          aria-label="Lihat detail project Retail Business Intelligence"
+          data-i18n-aria="proj.powerbi.aria"
+          aria-label="View the Retail Business Intelligence case study"
         >
           <div class="project-card__simple-body">
             <div class="project-tag">Data Analysis · Business Intelligence</div>
             <h3 data-i18n="proj.powerbi.title">Retail Business Intelligence — Sales, Customer &amp; Return Analysis</h3>
-            <p data-i18n="proj.powerbi.desc">541K baris data mentah, dibersihkan sampai bisa dipercaya. Return Rate terkoreksi dari 4.88% ke 2.15% — dashboard 2 halaman yang mengutamakan kualitas data, bukan sekadar visual.</p>
+            <p data-i18n="proj.powerbi.desc">541K rows of raw data, cleaned until trustworthy. Return Rate corrected from 4.88% to 2.15% — a 2-page dashboard that prioritizes data quality, not just visuals.</p>
             <div class="project-card__tech">
               <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Business Intelligence</span>
             </div>
@@ -495,7 +564,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p data-i18n="footer.copy">© 2025 Septian Ivander. Built with HTML, CSS &amp; JavaScript.</p>
+        <p data-i18n="footer.copy">© 2026 Septian Ivander. Built with HTML, CSS &amp; JavaScript.</p>
         <a href="#home" class="footer__back-top" aria-label="Back to top">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
         </a>
@@ -509,11 +578,7 @@
     <section class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="powerbi-modal-title">
       <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
       <span class="project-tag">Data Analysis · Business Intelligence</span>
-      <h2 id="powerbi-modal-title" data-i18n="proj.powerbi.title">Retail Sales Intelligence — Power BI Dashboard</h2>
-      <div class="modal-actions">
-        <a href="#" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">Live Demo</a>
-      </div>
+      <h2 id="powerbi-modal-title" data-i18n="proj.powerbi.title">Retail Business Intelligence — Sales, Customer &amp; Return Analysis</h2>
 
       <!-- ID -->
       <div class="modal-lang modal-lang--id">
@@ -561,12 +626,18 @@
 
       <h4>Galeri</h4>
       <div class="sinok-gallery">
-        <div class="sinok-gallery__item" data-src="assets/powerbi-overview.png" data-caption="Overview — Performa Penjualan, Tren, Geografis &amp; Produk">
-          <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-overview.webp" data-caption="Overview — Performa Penjualan, Tren, Geografis &amp; Produk">
+          <picture>
+            <source srcset="assets/powerbi-overview.webp" type="image/webp" />
+            <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" decoding="async" width="1483" height="837" />
+          </picture>
           <span class="sinok-gallery__caption">Overview — Penjualan, Tren, Geografis &amp; Produk</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/powerbi-customer-retur.png" data-caption="Customer &amp; Return — Analisis Retur &amp; Segmentasi Pelanggan">
-          <img src="assets/powerbi-customer-retur.png" alt="Customer & Return Dashboard" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-customer-retur.webp" data-caption="Customer &amp; Return — Analisis Retur &amp; Segmentasi Pelanggan">
+          <picture>
+            <source srcset="assets/powerbi-customer-retur.webp" type="image/webp" />
+            <img src="assets/powerbi-customer-retur.png" alt="Customer & Return Dashboard" loading="lazy" decoding="async" width="1487" height="836" />
+          </picture>
           <span class="sinok-gallery__caption">Customer &amp; Return — Analisis Retur &amp; Segmentasi</span>
         </div>
       </div>
@@ -657,12 +728,18 @@
 
       <h4>Gallery</h4>
       <div class="sinok-gallery">
-        <div class="sinok-gallery__item" data-src="assets/powerbi-overview.png" data-caption="Overview — Sales Performance, Trend, Geographic &amp; Product Breakdown">
-          <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-overview.webp" data-caption="Overview — Sales Performance, Trend, Geographic &amp; Product Breakdown">
+          <picture>
+            <source srcset="assets/powerbi-overview.webp" type="image/webp" />
+            <img src="assets/powerbi-overview.png" alt="Power BI Overview Dashboard" loading="lazy" decoding="async" width="1483" height="837" />
+          </picture>
           <span class="sinok-gallery__caption">Overview — Sales, Trend, Geographic &amp; Product</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/powerbi-customer-retur.png" data-caption="Customer &amp; Return — Return Intelligence &amp; Customer Segmentation">
-          <img src="assets/powerbi-customer-retur.png" alt="Customer & Return Dashboard" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-customer-retur.webp" data-caption="Customer &amp; Return — Return Intelligence &amp; Customer Segmentation">
+          <picture>
+            <source srcset="assets/powerbi-customer-retur.webp" type="image/webp" />
+            <img src="assets/powerbi-customer-retur.png" alt="Customer & Return Dashboard" loading="lazy" decoding="async" width="1487" height="836" />
+          </picture>
           <span class="sinok-gallery__caption">Customer &amp; Return — Return Intelligence &amp; Segmentation</span>
         </div>
       </div>
@@ -716,10 +793,6 @@
       <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
       <span class="project-tag">Automation · BI Dashboard · Forecasting</span>
       <h2 id="sinok-modal-title" data-i18n="proj.sinok.title">Sinok Homestay — Booking &amp; Forecasting System</h2>
-      <div class="modal-actions">
-        <a href="#" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">Live Demo</a>
-      </div>
 
       <!-- ID -->
       <div class="modal-lang modal-lang--id">
@@ -774,20 +847,32 @@
 
       <h4>Galeri</h4>
       <div class="sinok-gallery">
-        <div class="sinok-gallery__item" data-src="assets/sinok-workflow.png" data-caption="n8n Automation Workflow">
-          <img src="assets/sinok-workflow.png" alt="n8n Automation Workflow" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-workflow.webp" data-caption="n8n Automation Workflow">
+          <picture>
+            <source srcset="assets/sinok-workflow.webp" type="image/webp" />
+            <img src="assets/sinok-workflow.png" alt="n8n Automation Workflow" loading="lazy" decoding="async" width="791" height="283" />
+          </picture>
           <span class="sinok-gallery__caption">n8n Automation Workflow</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-dashboard.png" data-caption="Dashboard Analisa Okupansi">
-          <img src="assets/sinok-dashboard.png" alt="Dashboard Analisa Okupansi" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-dashboard.webp" data-caption="Dashboard Analisa Okupansi">
+          <picture>
+            <source srcset="assets/sinok-dashboard.webp" type="image/webp" />
+            <img src="assets/sinok-dashboard.png" alt="Dashboard Analisa Okupansi" loading="lazy" decoding="async" width="803" height="601" />
+          </picture>
           <span class="sinok-gallery__caption">Dashboard Analisa Okupansi</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-forecast.png" data-caption="Prediksi Occupancy &amp; Revenue">
-          <img src="assets/sinok-forecast.png" alt="Prediksi Occupancy & Revenue" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-forecast.webp" data-caption="Prediksi Occupancy &amp; Revenue">
+          <picture>
+            <source srcset="assets/sinok-forecast.webp" type="image/webp" />
+            <img src="assets/sinok-forecast.png" alt="Prediksi Occupancy & Revenue" loading="lazy" decoding="async" width="702" height="145" />
+          </picture>
           <span class="sinok-gallery__caption">Prediksi Occupancy &amp; Revenue</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-bot.png" data-caption="Telegram Bot Booking Flow">
-          <img src="assets/sinok-bot.png" alt="Telegram Bot Booking Flow" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-bot.webp" data-caption="Telegram Bot Booking Flow">
+          <picture>
+            <source srcset="assets/sinok-bot.webp" type="image/webp" />
+            <img src="assets/sinok-bot.png" alt="Telegram Bot Booking Flow" loading="lazy" decoding="async" width="797" height="851" />
+          </picture>
           <span class="sinok-gallery__caption">Telegram Bot Booking Flow</span>
         </div>
       </div>
@@ -888,20 +973,32 @@
 
       <h4>Gallery</h4>
       <div class="sinok-gallery">
-        <div class="sinok-gallery__item" data-src="assets/sinok-workflow.png" data-caption="n8n Automation Workflow">
-          <img src="assets/sinok-workflow.png" alt="n8n Automation Workflow" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-workflow.webp" data-caption="n8n Automation Workflow">
+          <picture>
+            <source srcset="assets/sinok-workflow.webp" type="image/webp" />
+            <img src="assets/sinok-workflow.png" alt="n8n Automation Workflow" loading="lazy" decoding="async" width="791" height="283" />
+          </picture>
           <span class="sinok-gallery__caption">n8n Automation Workflow</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-dashboard.png" data-caption="Occupancy Analysis Dashboard">
-          <img src="assets/sinok-dashboard.png" alt="Occupancy Analysis Dashboard" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-dashboard.webp" data-caption="Occupancy Analysis Dashboard">
+          <picture>
+            <source srcset="assets/sinok-dashboard.webp" type="image/webp" />
+            <img src="assets/sinok-dashboard.png" alt="Occupancy Analysis Dashboard" loading="lazy" decoding="async" width="803" height="601" />
+          </picture>
           <span class="sinok-gallery__caption">Occupancy Analysis Dashboard</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-forecast.png" data-caption="Occupancy &amp; Revenue Forecast">
-          <img src="assets/sinok-forecast.png" alt="Occupancy & Revenue Forecast" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-forecast.webp" data-caption="Occupancy &amp; Revenue Forecast">
+          <picture>
+            <source srcset="assets/sinok-forecast.webp" type="image/webp" />
+            <img src="assets/sinok-forecast.png" alt="Occupancy & Revenue Forecast" loading="lazy" decoding="async" width="702" height="145" />
+          </picture>
           <span class="sinok-gallery__caption">Occupancy &amp; Revenue Forecast</span>
         </div>
-        <div class="sinok-gallery__item" data-src="assets/sinok-bot.png" data-caption="Telegram Bot Booking Flow">
-          <img src="assets/sinok-bot.png" alt="Telegram Bot Booking Flow" loading="lazy" />
+        <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-bot.webp" data-caption="Telegram Bot Booking Flow">
+          <picture>
+            <source srcset="assets/sinok-bot.webp" type="image/webp" />
+            <img src="assets/sinok-bot.png" alt="Telegram Bot Booking Flow" loading="lazy" decoding="async" width="797" height="851" />
+          </picture>
           <span class="sinok-gallery__caption">Telegram Bot Booking Flow</span>
         </div>
       </div>
@@ -958,38 +1055,6 @@
       <button class="sinok-lightbox__close" aria-label="Close">&times;</button>
       <img class="sinok-lightbox__img" src="" alt="" />
       <p class="sinok-lightbox__caption"></p>
-    </div>
-  </div>
-
-  <!-- PROJECT MODAL -->
-  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
-      <div class="modal__scroll">
-        <div class="modal__tag" id="modalTag"></div>
-        <h2 class="modal__title" id="modalTitle"></h2>
-        <div class="modal__links" id="modalLinks"></div>
-        <div class="modal__section">
-          <h4 data-i18n="modal.overview">Overview</h4>
-          <p id="modalDesc"></p>
-        </div>
-        <div class="modal__section" id="modalGalleryWrap" style="display:none">
-          <h4 data-i18n="modal.gallery">Gallery</h4>
-          <div class="modal__gallery" id="modalGallery"></div>
-        </div>
-        <div class="modal__section" id="modalHighlightsWrap">
-          <h4 data-i18n="modal.highlights">Highlights</h4>
-          <ul class="modal__list" id="modalHighlights"></ul>
-        </div>
-        <div class="modal__section" id="modalMetricsWrap">
-          <h4 data-i18n="modal.results">Results</h4>
-          <div class="modal__metrics" id="modalMetrics"></div>
-        </div>
-        <div class="modal__section">
-          <h4 data-i18n="modal.tech">Tech Stack</h4>
-          <div class="modal__tech" id="modalTech"></div>
-        </div>
-      </div>
     </div>
   </div>
 

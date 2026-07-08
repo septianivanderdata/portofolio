@@ -37,6 +37,8 @@ const translations = {
 
     'skills.tag': 'Skills',
     'skills.title': 'What I Work With',
+    'skills.level.advanced': 'Advanced',
+    'skills.level.intermediate': 'Intermediate',
 
     'projects.tag': 'Projects',
     'projects.title': 'Featured Work',
@@ -45,20 +47,14 @@ const translations = {
     'projects.filter.bi': 'Business Intelligence',
     'projects.filter.automation': 'Automation',
 
-    'proj.sinok.badge': 'Featured Project',
-    'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting',
+    'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting System',
     'proj.sinok.desc': 'Automation and business intelligence system to help homestay businesses record bookings, reduce double-booking risk, monitor occupancy, and project monthly revenue.',
-    'proj.sinok.stat1': 'Entry Booking',
-    'proj.sinok.stat2': 'Transactions',
-    'proj.sinok.stat3': 'Projected Occ.',
     'proj.sinok.cta': 'View Case Study →',
-    'proj.powerbi.badge': 'Featured Project',
+    'proj.sinok.aria': 'View the Sinok Homestay case study',
     'proj.powerbi.title': 'Retail Business Intelligence — Sales, Customer & Return Analysis',
     'proj.powerbi.desc': '541K rows of raw data, cleaned until trustworthy. Return Rate corrected from 4.88% to 2.15% — a 2-page dashboard that prioritizes data quality, not just visuals.',
-    'proj.powerbi.stat1': 'Total Revenue analyzed',
-    'proj.powerbi.stat2': 'Return Rate corrected (from 4.88%)',
-    'proj.powerbi.stat3': 'Return Rate',
     'proj.powerbi.cta': 'View Case Study →',
+    'proj.powerbi.aria': 'View the Retail Business Intelligence case study',
 
     'exp.tag': 'Experience',
     'exp.title': 'Career Journey',
@@ -99,14 +95,10 @@ const translations = {
     'contact.form.message': 'Message',
     'contact.form.messagePh': 'Tell me about your project...',
     'contact.form.send': 'Send Message',
+    'contact.form.opening': 'Opening your email app…',
+    'contact.form.fallback': 'Your browser blocked the email app. Write to septianivander.data@gmail.com directly.',
 
-    'modal.overview': 'Overview',
-    'modal.gallery': 'Gallery',
-    'modal.highlights': 'Highlights',
-    'modal.results': 'Results',
-    'modal.tech': 'Tech Stack',
-
-    'footer.copy': '© 2025 Septian Ivander. Built with HTML, CSS & JavaScript.',
+    'footer.copy': '© 2026 Septian Ivander. Built with HTML, CSS & JavaScript.',
   },
   id: {
     'nav.about': 'Tentang',
@@ -145,6 +137,8 @@ const translations = {
 
     'skills.tag': 'Keahlian',
     'skills.title': 'Yang Saya Gunakan',
+    'skills.level.advanced': 'Mahir',
+    'skills.level.intermediate': 'Menengah',
 
     'projects.tag': 'Proyek',
     'projects.title': 'Karya Unggulan',
@@ -153,20 +147,14 @@ const translations = {
     'projects.filter.bi': 'Business Intelligence',
     'projects.filter.automation': 'Automation',
 
-    'proj.sinok.badge': 'Proyek Unggulan',
-    'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting',
+    'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting System',
     'proj.sinok.desc': 'Sistem otomasi dan business intelligence untuk membantu bisnis homestay mencatat booking, mengurangi risiko double booking, memantau okupansi, dan memproyeksikan revenue bulanan.',
-    'proj.sinok.stat1': 'Entry Booking',
-    'proj.sinok.stat2': 'Transaksi',
-    'proj.sinok.stat3': 'Proyeksi Occ.',
     'proj.sinok.cta': 'Lihat Case Study →',
-    'proj.powerbi.badge': 'Proyek Unggulan',
+    'proj.sinok.aria': 'Lihat detail case study Sinok Homestay',
     'proj.powerbi.title': 'Retail Business Intelligence — Sales, Customer & Return Analysis',
     'proj.powerbi.desc': '541K baris data mentah, dibersihkan sampai bisa dipercaya. Return Rate terkoreksi dari 4.88% ke 2.15% — dashboard 2 halaman yang mengutamakan kualitas data, bukan sekadar visual.',
-    'proj.powerbi.stat1': 'Total Revenue teranalisis',
-    'proj.powerbi.stat2': 'Return Rate terkoreksi (dari 4.88%)',
-    'proj.powerbi.stat3': 'Return Rate',
     'proj.powerbi.cta': 'Lihat Case Study →',
+    'proj.powerbi.aria': 'Lihat detail case study Retail Business Intelligence',
 
     'exp.tag': 'Pengalaman',
     'exp.title': 'Perjalanan Karier',
@@ -207,18 +195,22 @@ const translations = {
     'contact.form.message': 'Pesan',
     'contact.form.messagePh': 'Ceritakan tentang proyek Anda...',
     'contact.form.send': 'Kirim Pesan',
+    'contact.form.opening': 'Membuka aplikasi email Anda…',
+    'contact.form.fallback': 'Browser Anda memblokir aplikasi email. Kirim langsung ke septianivander.data@gmail.com.',
 
-    'modal.overview': 'Gambaran Umum',
-    'modal.gallery': 'Galeri',
-    'modal.highlights': 'Highlights',
-    'modal.results': 'Hasil',
-    'modal.tech': 'Tech Stack',
-
-    'footer.copy': '© 2025 Septian Ivander. Dibuat dengan HTML, CSS & JavaScript.',
+    'footer.copy': '© 2026 Septian Ivander. Dibuat dengan HTML, CSS & JavaScript.',
   },
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+const EMAIL = 'septianivander.data@gmail.com';
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+let currentLang = 'en';
+try {
+  const saved = localStorage.getItem('lang');
+  if (saved === 'en' || saved === 'id') currentLang = saved;
+} catch (e) { /* localStorage unavailable */ }
 
 function applyLang(lang) {
   const t = translations[lang];
@@ -235,87 +227,82 @@ function applyLang(lang) {
     if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
   });
 
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.dataset.i18nAria;
+    if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+  });
+
   const toggle = document.getElementById('langToggle');
   if (toggle) {
     toggle.querySelector('.lang-toggle__active').textContent = lang.toUpperCase();
     toggle.querySelector('.lang-toggle__other').textContent = lang === 'en' ? 'ID' : 'EN';
   }
 
-  localStorage.setItem('lang', lang);
+  try { localStorage.setItem('lang', lang); } catch (e) { /* ignore */ }
   currentLang = lang;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  applyLang(currentLang);
-  document.getElementById('langToggle').addEventListener('click', () => {
-    applyLang(currentLang === 'en' ? 'id' : 'en');
-  });
+applyLang(currentLang);
+document.getElementById('langToggle').addEventListener('click', () => {
+  applyLang(currentLang === 'en' ? 'id' : 'en');
 });
 
-// Nav scroll effect
+// ─── Nav ─────────────────────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-// Mobile burger
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  burger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-});
+
+function setMenuOpen(open) {
+  navLinks.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+}
+
+burger.addEventListener('click', () => setMenuOpen(!navLinks.classList.contains('open')));
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
+  link.addEventListener('click', () => setMenuOpen(false));
 });
 
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav__links a[href^="#"]');
 function setActiveLink() {
   const scrollY = window.scrollY + 80;
   sections.forEach(section => {
+    const link = document.querySelector(`.nav__links a[href="#${section.id}"]`);
+    if (!link) return;
     const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute('id');
-    const link = document.querySelector(`.nav__links a[href="#${id}"]`);
-    if (link) {
-      link.classList.toggle('active', scrollY >= top && scrollY < top + height);
-    }
+    link.classList.toggle('active', scrollY >= top && scrollY < top + section.offsetHeight);
   });
 }
 window.addEventListener('scroll', setActiveLink, { passive: true });
+setActiveLink();
 
-// Intersection Observer — fade in + skill bar animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+// ─── Reveal on scroll ────────────────────────────────────────────
+const revealTargets = document.querySelectorAll(
+  '.hero__content, .hero__visual, .about__text, .about__card, .skill-card, .project-card, .timeline__item, .contact__info, .contact__form'
+);
+
+if (prefersReducedMotion) {
+  revealTargets.forEach(el => el.classList.add('visible'));
+} else {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
       entry.target.classList.add('visible');
-      // Trigger skill bar animations when section visible
-      if (entry.target.classList.contains('skills')) {
-        entry.target.querySelectorAll('.skill-bar__fill').forEach(bar => {
-          bar.style.animationPlayState = 'running';
-        });
-      }
       observer.unobserve(entry.target);
-    }
+    });
+  }, { threshold: 0.12 });
+
+  revealTargets.forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
   });
-}, { threshold: 0.12 });
+}
 
-document.querySelectorAll(
-  '.hero__content, .hero__visual, .about__text, .about__card, .skill-card, .project-card, .timeline__item, .contact__info, .contact__form, .skills'
-).forEach(el => {
-  el.classList.add('fade-in');
-  observer.observe(el);
-});
-
-// Pause skill bars until visible
-document.querySelectorAll('.skill-bar__fill').forEach(bar => {
-  bar.style.animationPlayState = 'paused';
-});
-
-
-// Project filter
+// ─── Project filter ──────────────────────────────────────────────
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card[data-category]');
 
@@ -331,268 +318,193 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Contact form — mailto fallback
-document.getElementById('contactForm').addEventListener('submit', e => {
+// ─── Contact form (mailto) ───────────────────────────────────────
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', e => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
   const subject = encodeURIComponent(data.subject || 'Portfolio Contact');
-  const body = encodeURIComponent(`Name: ${data.name}\n\n${data.message}`);
-  window.open(`mailto:septianivander.data@gmail.com?subject=${subject}&body=${body}`);
+  const body = encodeURIComponent(
+    `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`
+  );
+
+  showFormStatus(translations[currentLang]['contact.form.opening'], 'info');
+
+  // Popup blockers kill window.open on mailto: — a same-tab navigation is reliable.
+  window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+
+  // If the mail client never takes over, the page stays put. Tell the user.
+  setTimeout(() => {
+    if (!document.hidden) {
+      showFormStatus(translations[currentLang]['contact.form.fallback'], 'warn');
+    }
+  }, 2000);
 });
 
-// Smooth counter animation for hero stats
-function animateCounter(el, target) {
-  let start = 0;
+function showFormStatus(message, kind) {
+  let el = document.getElementById('formStatus');
+  if (!el) {
+    el = document.createElement('p');
+    el.id = 'formStatus';
+    el.className = 'form-status';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    contactForm.appendChild(el);
+  }
+  el.dataset.kind = kind;
+  el.textContent = message;
+}
+
+// ─── Hero stat counters ──────────────────────────────────────────
+function animateCounter(el, target, suffix) {
   const duration = 1500;
-  const step = (timestamp) => {
-    if (!start) start = timestamp;
+  let start = null;
+  const step = timestamp => {
+    if (start === null) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + el.dataset.suffix;
+    el.textContent = Math.round(eased * target) + suffix;
     if (progress < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
 }
 
-const heroObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+const heroStats = document.querySelector('.hero__stats');
+if (heroStats && !prefersReducedMotion) {
+  const heroObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
       document.querySelectorAll('.stat__num').forEach(el => {
-        const val = parseInt(el.textContent);
-        if (isNaN(val)) return;
+        const value = parseInt(el.textContent, 10);
+        if (Number.isNaN(value)) return;
         const suffix = el.textContent.replace(/\d+/, '');
-        el.dataset.suffix = suffix;
         el.textContent = '0' + suffix;
-        animateCounter(el, val);
+        animateCounter(el, value, suffix);
       });
       heroObserver.disconnect();
-    }
-  });
-}, { threshold: 0.5 });
-
-const heroStats = document.querySelector('.hero__stats');
-if (heroStats) heroObserver.observe(heroStats);
-
-// ─── Project Modal ───────────────────────────────────────────────
-const projectData = {
-  powerbi: {
-    tag: 'Data Analysis & Business Intelligence',
-    title: 'Retail Sales Intelligence — Power BI Dashboard',
-    github: '#',
-    demo: '#',
-    problem: 'Kebanyakan bisnis retail punya ribuan transaksi setiap bulan — tapi datanya tersimpan di spreadsheet terpisah, tidak ada yang tahu produk mana yang paling sering diretur, pelanggan mana yang paling bernilai, atau bulan mana yang paling lemah. Keputusan dibuat berdasarkan feeling, bukan angka. Dan selama itu, uang terus bocor diam-diam.',
-    solutions: [
-      { label: 'Revenue Visibility', desc: 'Satu tampilan tunggal untuk £9.79M revenue dari 23K transaksi — dipilah per bulan, per negara, per produk, dalam hitungan detik.' },
-      { label: 'Return Intelligence', desc: 'Menemukan £478K yang "hilang" akibat retur 5.13% — siapa yang retur, dari mana, dan kapan polanya terjadi.' },
-      { label: 'Customer Intelligence', desc: 'Top 10 pelanggan menyumbang £1.37M. 93.92% transaksi dari guest, bukan member — peluang loyalty program yang nyata.' },
-    ],
-    desc: 'Dashboard Power BI dua halaman yang mengubah lebih dari 23.000 transaksi retail menjadi keputusan bisnis yang jelas. Halaman Overview menampilkan performa revenue keseluruhan, tren bulanan, distribusi geografis, dan produk terlaris. Halaman Customer & Retur membedah siapa pelanggan terbaik, di mana retur paling banyak terjadi, dan bagaimana polanya berubah dari waktu ke waktu.',
-    highlights: [
-      'Revenue £9.79M dari 23K transaksi tumbuh +5% dibanding periode sebelumnya',
-      'Ditemukan £478.72K retur tersembunyi — 5.13% return rate yang selama ini tidak termonitor',
-      '93.92% transaksi dilakukan oleh guest (non-member) — celah besar untuk program loyalitas',
-      'UK adalah pasar terbesar sekaligus negara dengan return tertinggi — butuh strategi berbeda',
-      'Top 10 pelanggan menyumbang £1.37M — segmen VIP yang bisa ditarget retensi',
-      'Dashboard interaktif: filter per tahun, negara, dan tipe pelanggan — drill down dalam hitungan detik',
-      'Tren bulanan memperlihatkan puncak penjualan Desember 2011 sebagai periode terkuat',
-    ],
-    caveat: null,
-    metrics: [
-      { value: '£9.79M', label: 'Total Revenue' },
-      { value: '23K', label: 'Total Transaksi' },
-      { value: '£478K', label: 'Nilai Retur Teridentifikasi' },
-      { value: '£1.37M', label: 'Sales dari Top 10 Customer' },
-    ],
-    images: [
-      { src: 'assets/powerbi-overview.png', caption: 'Overview — Revenue, Trend, Geographic & Product Breakdown' },
-      { src: 'assets/powerbi-customer-retur.png', caption: 'Customer & Retur — Return Intelligence & Customer Segmentation' },
-    ],
-    tech: ['Power BI', 'DAX', 'Data Modeling', 'Business Intelligence', 'Data Analysis'],
-  },
-  sinok: {
-    tag: 'Data Analysis',
-    title: 'Sinok Homestay — Booking & Forecasting System',
-    github: '#',
-    demo: '#',
-    problem: 'Banyak usaha homestay menyimpan data booking yang sebenarnya kaya insight, tapi tetap dicatat manual di buku atau chat WA. Dengan kamar yang dijual di banyak OTA sekaligus, admin sering salah info ketersediaan dan berisiko double booking. Pemilik pun sulit menebak kapan musim sepi atau ramai, karena keputusan masih mengandalkan ingatan, bukan data.',
-    solutions: [
-      { label: 'Visibility', desc: 'Dashboard mengubah data mentah jadi tren okupansi & revenue yang terbaca dalam hitungan detik.' },
-      { label: 'Otomasi', desc: 'Booking masuk lewat satu baris command chat, langsung memicu reminder ke semua OTA lain.' },
-      { label: 'Foresight', desc: 'Proyeksi okupansi & revenue bulan depan, dihitung otomatis dari tren histori.' },
-    ],
-    desc: 'Sistem data & otomasi end-to-end untuk bisnis homestay (proyek simulasi) — dari pencatatan booking, otomasi pengingat OTA, sampai proyeksi okupansi bulan depan. Tujuannya bukan cuma menunjukkan tools yang dipakai, tapi cara berpikir: data yang berantakan bisa diubah jadi keputusan yang lebih cepat dan lebih jelas.',
-    highlights: [
-      'Booking baru tercatat ke Google Sheets dalam <1 menit via satu baris command chat — tanpa buka laptop',
-      'Setiap booking otomatis memicu reminder ke semua OTA lain (Traveloka, Agoda, Booking.com) — mengurangi risiko double booking',
-      'Telegram Bot memvalidasi format input, tipe kamar, dan langsung konfirmasi Booking ID unik',
-      'Dashboard interaktif: harga vs okupansi, peta musiman per bulan, sumber booking, okupansi per hari',
-      'Proyeksi okupansi & revenue bulan depan dihitung otomatis dari tren histori',
-      'Diuji pada 784 data transaksi simulasi sepanjang Juni 2024–Juni 2026',
-    ],
-    caveat: 'Limitasi saat ini: denominator rate okupansi masih dihitung flat per bulan (belum prorata untuk tanggal check-in yang menginap lintas bulan), dan beberapa data uji ("Test") masih bercampur dalam simulasi ini. Arah pengembangan lanjutan: sisa kamar yang otomatis terhitung real-time setiap ada transaksi baru.',
-    metrics: [
-      { value: '<1 mnt', label: 'Entry Booking' },
-      { value: '784', label: 'Data Transaksi' },
-      { value: '54.34%', label: 'Proyeksi Occ. Jul 2026' },
-      { value: 'Rp39,4 Jt', label: 'Proyeksi Revenue Jul 2026' },
-    ],
-    images: [
-      { src: 'assets/sinok-workflow.png', caption: 'n8n Automation Workflow' },
-      { src: 'assets/sinok-dashboard.png', caption: 'Dashboard Analisa Okupansi' },
-      { src: 'assets/sinok-forecast.png', caption: 'Prediksi Occ & Revenue Jul 2026' },
-      { src: 'assets/sinok-bot.png', caption: 'Telegram Bot — Booking Flow' },
-    ],
-    tech: ['Google Sheets', 'n8n', 'Telegram Bot API', 'Python', 'Dashboard', 'Automation'],
-  },
-};
-
-const overlay = document.getElementById('projectModal');
-const modalClose = document.getElementById('modalClose');
-
-function openModal(id) {
-  const d = projectData[id];
-  if (!d) return;
-
-  const t = translations[currentLang];
-
-  document.getElementById('modalTag').textContent = d.tag;
-  document.getElementById('modalTitle').textContent = d.title;
-
-  // Problem block (sinok-specific)
-  let descHTML = '';
-  if (d.problem) {
-    descHTML += `<div class="modal__problem">${d.problem}</div>`;
-  }
-  if (d.solutions) {
-    descHTML += `<div class="modal__solution-grid">${d.solutions.map(s =>
-      `<div class="modal__solution-item"><strong>${s.label}</strong><span>${s.desc}</span></div>`
-    ).join('')}</div>`;
-  }
-  descHTML += d.desc;
-  if (d.caveat) {
-    descHTML += `<div class="modal__caveat" style="margin-top:16px"><strong>⚠ Kejujuran Teknis</strong>${d.caveat}</div>`;
-  }
-  document.getElementById('modalDesc').innerHTML = descHTML;
-
-  const linksEl = document.getElementById('modalLinks');
-  linksEl.innerHTML = `
-    <a href="${d.github}" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a href="${d.demo}" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      Live Demo
-    </a>`;
-
-  // Gallery
-  const galleryWrap = document.getElementById('modalGalleryWrap');
-  const galleryEl = document.getElementById('modalGallery');
-  if (d.images && d.images.length) {
-    galleryEl.innerHTML = d.images.map(img =>
-      `<div class="modal__gallery-item">
-        <img src="${img.src}" alt="${img.caption}" loading="lazy" />
-        <span class="modal__gallery-caption">${img.caption}</span>
-      </div>`
-    ).join('');
-    galleryWrap.style.display = '';
-    // re-apply i18n for gallery header
-    const h4 = galleryWrap.querySelector('h4');
-    if (h4 && t['modal.gallery']) h4.textContent = t['modal.gallery'];
-  } else {
-    galleryWrap.style.display = 'none';
-    galleryEl.innerHTML = '';
-  }
-
-  const hlWrap = document.getElementById('modalHighlightsWrap');
-  const hlEl = document.getElementById('modalHighlights');
-  hlEl.innerHTML = d.highlights.map(h => `<li>${h}</li>`).join('');
-  hlWrap.style.display = d.highlights.length ? '' : 'none';
-
-  const metricsWrap = document.getElementById('modalMetricsWrap');
-  const metricsEl = document.getElementById('modalMetrics');
-  metricsEl.innerHTML = d.metrics.map(m =>
-    `<div class="modal__metric"><strong>${m.value}</strong><span>${m.label}</span></div>`
-  ).join('');
-  metricsWrap.style.display = d.metrics.length ? '' : 'none';
-
-  const techEl = document.getElementById('modalTech');
-  techEl.innerHTML = d.tech.map(item => `<span>${item}</span>`).join('');
-
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+    });
+  }, { threshold: 0.5 });
+  heroObserver.observe(heroStats);
 }
 
-function closeModal() {
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
+// ─── Dialog layer (project modals + lightbox) ────────────────────
+// Both dialogs share one Escape handler so the topmost layer closes first,
+// and one scroll-lock counter so closing one doesn't unlock the other.
+const FOCUSABLE = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
+const dialogStack = [];
 
-document.querySelectorAll('.project-card[data-id]').forEach(card => {
-  card.addEventListener('click', () => openModal(card.dataset.id));
-});
-
-modalClose.addEventListener('click', closeModal);
-overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeSinokModal(); } });
-
-// ─── Sinok Modal (dedicated modal pattern) ───────────────────────
-function openSinokModal(selector) {
-  const modal = document.querySelector(selector);
-  if (!modal) return;
-  modal.classList.add('is-open');
-  modal.setAttribute('aria-hidden', 'false');
+function lockScroll() {
   document.body.classList.add('modal-open');
 }
-
-function closeSinokModal() {
-  const active = document.querySelector('.project-modal.is-open');
-  if (!active) return;
-  active.classList.remove('is-open');
-  active.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
+function unlockScroll() {
+  if (dialogStack.length === 0) document.body.classList.remove('modal-open');
 }
 
+function openDialog(el, onClose) {
+  const entry = { el, onClose, lastFocus: document.activeElement };
+  dialogStack.push(entry);
+  el.setAttribute('aria-hidden', 'false');
+  lockScroll();
+
+  const first = el.querySelector(FOCUSABLE);
+  if (first) first.focus();
+}
+
+function closeTopDialog() {
+  const entry = dialogStack.pop();
+  if (!entry) return;
+  entry.onClose();
+  entry.el.setAttribute('aria-hidden', 'true');
+  unlockScroll();
+  if (entry.lastFocus && typeof entry.lastFocus.focus === 'function') entry.lastFocus.focus();
+}
+
+function closeDialog(el) {
+  const index = dialogStack.findIndex(entry => entry.el === el);
+  if (index === -1) return;
+  // Close everything stacked above it first, then it.
+  while (dialogStack.length > index) closeTopDialog();
+}
+
+// Trap Tab inside the topmost dialog.
+document.addEventListener('keydown', e => {
+  if (dialogStack.length === 0) return;
+
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    closeTopDialog();
+    return;
+  }
+  if (e.key !== 'Tab') return;
+
+  const { el } = dialogStack[dialogStack.length - 1];
+  const focusable = [...el.querySelectorAll(FOCUSABLE)].filter(n => n.offsetParent !== null);
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+});
+
+// ─── Project modals ──────────────────────────────────────────────
 document.querySelectorAll('.js-project-card').forEach(card => {
-  card.addEventListener('click', () => openSinokModal(card.dataset.modalTarget));
+  const open = () => {
+    const modal = document.querySelector(card.dataset.modalTarget);
+    if (!modal) return;
+    modal.classList.add('is-open');
+    openDialog(modal, () => modal.classList.remove('is-open'));
+  };
+
+  card.addEventListener('click', open);
   card.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      openSinokModal(card.dataset.modalTarget);
+      open();
     }
   });
 });
 
 document.querySelectorAll('[data-close-modal]').forEach(btn => {
-  btn.addEventListener('click', closeSinokModal);
+  btn.addEventListener('click', () => {
+    const modal = btn.closest('.project-modal');
+    if (modal) closeDialog(modal);
+  });
 });
 
-// ─── Sinok Gallery Lightbox ──────────────────────────────────────
-(function () {
-  const lightbox = document.getElementById('sinok-lightbox');
-  const lbImg = lightbox.querySelector('.sinok-lightbox__img');
-  const lbCaption = lightbox.querySelector('.sinok-lightbox__caption');
-  const lbClose = lightbox.querySelector('.sinok-lightbox__close');
-  const lbOverlay = lightbox.querySelector('.sinok-lightbox__overlay');
+// ─── Gallery lightbox ────────────────────────────────────────────
+const lightbox = document.getElementById('sinok-lightbox');
+const lbImg = lightbox.querySelector('.sinok-lightbox__img');
+const lbCaption = lightbox.querySelector('.sinok-lightbox__caption');
 
-  function openLightbox(src, caption) {
-    lbImg.src = src;
-    lbImg.alt = caption;
-    lbCaption.textContent = caption;
-    lightbox.classList.add('is-open');
-    lightbox.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeLightbox() {
+function openLightbox(src, caption) {
+  lbImg.src = src;
+  lbImg.alt = caption;
+  lbCaption.textContent = caption;
+  lightbox.classList.add('is-open');
+  openDialog(lightbox, () => {
     lightbox.classList.remove('is-open');
-    lightbox.setAttribute('aria-hidden', 'true');
-  }
-
-  document.querySelectorAll('.sinok-gallery__item').forEach(item => {
-    item.addEventListener('click', () => openLightbox(item.dataset.src, item.dataset.caption));
+    lbImg.removeAttribute('src');
   });
+}
 
-  lbClose.addEventListener('click', closeLightbox);
-  lbOverlay.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-})();
+document.querySelectorAll('.sinok-gallery__item').forEach(item => {
+  const open = () => openLightbox(item.dataset.src, item.dataset.caption);
+  item.addEventListener('click', open);
+  item.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      open();
+    }
+  });
+});
+
+lightbox.querySelector('.sinok-lightbox__close').addEventListener('click', () => closeDialog(lightbox));
+lightbox.querySelector('.sinok-lightbox__overlay').addEventListener('click', () => closeDialog(lightbox));
