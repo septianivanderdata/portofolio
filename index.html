@@ -174,9 +174,9 @@
             Looker Studio, n8n, and Telegram Bot API.
           </p>
           <p data-i18n="about.p3">
-            To be straight with you: the two projects below are builds, not client outcomes — one runs on
-            data I generated, the other on a public dataset. I'm looking for the first real business to
-            change that, and I'll do it free.
+            One of the projects below now runs at a real business — a three-room homestay in Balige. It went
+            live in July 2026, so there's no measured outcome yet, and I won't pretend otherwise. Every
+            number you see is still from the data I built it against.
           </p>
           <div class="about__links">
             <a href="mailto:septianivander.data@gmail.com" class="about__link">
@@ -225,8 +225,7 @@
               </div>
             </li>
           </ul>
-          <a href="assets/cv-septian-ivander.pdf" class="btn btn--primary btn--full"
-             download="CV-Septian-Ivander.pdf" data-i18n="about.cv">Download CV</a>
+          <a href="#contact" class="btn btn--primary btn--full" data-i18n="about.cta">Get In Touch</a>
         </div>
       </div>
     </div>
@@ -369,7 +368,7 @@
       <div class="section-header">
         <span class="section-tag" data-i18n="projects.tag">Projects</span>
         <h2 class="section-title" data-i18n="projects.title">Featured Work</h2>
-        <p class="section-subtitle" data-i18n="projects.subtitle">Two builds, labelled honestly. Neither is client work yet — the badge on each card tells you exactly what the data is.</p>
+        <p class="section-subtitle" data-i18n="projects.subtitle">Labelled honestly. The badge on each card tells you what the data behind it actually is — deployed, public, or invented.</p>
       </div>
       <div class="projects__filter">
         <button class="filter-btn active" data-filter="all" data-i18n="projects.filter.all">All</button>
@@ -391,10 +390,10 @@
           <div class="project-card__simple-body">
             <div class="project-card__head">
               <div class="project-tag">Automation · Business Intelligence</div>
-              <span class="data-badge data-badge--simulated" data-i18n="badge.simulated">Simulated data</span>
+              <span class="data-badge data-badge--live" data-i18n="badge.live">Live · real business</span>
             </div>
             <h3 data-i18n="proj.sinok.title">Sinok Homestay — Booking &amp; Forecasting System</h3>
-            <p data-i18n="proj.sinok.desc">A working Telegram → n8n → Sheets → dashboard pipeline, built on data I generated myself. It demonstrates the plumbing, not a business outcome. No real homestay uses it.</p>
+            <p data-i18n="proj.sinok.desc">A 3-room homestay in Balige, Toba, running on it since July 2026 — bookings now arrive by Telegram instead of WhatsApp. Too new to claim an outcome; the numbers shown here are still from the simulated dataset I built it against.</p>
             <div class="project-card__tech">
               <span>Google Sheets</span><span>n8n</span><span>Telegram Bot</span><span>Python</span>
             </div>
@@ -425,17 +424,18 @@
           </div>
         </article>
 
-        <!-- Slot for the first real client project. Fill this in; delete the placeholder card.
-             See PROJECT-CHECKLIST.md at the repo root for what to collect. -->
+        <!-- Sinok went live July 2026, so the "first one free" slot is taken. What's still missing is a
+             *measured* before/after. Replace this card once Sinok has enough months of real booking data.
+             See PROJECT-CHECKLIST.md at the repo root. -->
         <article class="project-card project-card--placeholder" data-category="data bi automation">
           <div class="project-card__simple-body">
             <div class="project-card__head">
               <div class="project-tag" data-i18n="proj.next.tag">Next up</div>
-              <span class="data-badge data-badge--real" data-i18n="badge.real">Real client data</span>
+              <span class="data-badge data-badge--real" data-i18n="badge.measured">Measured outcome</span>
             </div>
-            <h3 data-i18n="proj.next.title">A real business, real data</h3>
-            <p data-i18n="proj.next.desc">The two projects above prove I can build. Neither proves I've changed a business. I'm looking for one small business — warung, kos, laundry, online shop — willing to hand over their messy records. Free, for the first one.</p>
-            <a href="#contact" class="project-cta" data-i18n="proj.next.cta">Be that business →</a>
+            <h3 data-i18n="proj.next.title">Proof that it worked</h3>
+            <p data-i18n="proj.next.desc">Sinok runs on the system. What I don't have yet is the number that matters: hours saved, double bookings avoided, measured against how it was before. That takes months of real data, not a demo. It'll go here when it exists.</p>
+            <a href="#contact" class="project-cta" data-i18n="proj.next.cta">Want to be the next one? →</a>
           </div>
         </article>
 
@@ -912,13 +912,14 @@
 
       <div class="tldr">
         <strong>Baca ini dulu</strong>
-        <p><b>Apa ini:</b> pipeline Telegram → n8n → Google Sheets → dashboard → forecast, jalan beneran end-to-end.</p>
-        <p><b>Apa ini bukan:</b> tidak ada homestay yang memakainya. 784 baris datanya saya buat sendiri. Perhitungan okupansi masih flat per bulan, belum prorata untuk booking lintas bulan — jadi angkanya benar secara aritmetika, tapi salah secara akuntansi kamar.</p>
-        <p><b>Yang bisa dinilai dari sini:</b> apakah saya bisa merangkai sistem yang bekerja, bukan apakah saya pernah memperbaiki bisnis.</p>
+        <p><b>Yang nyata:</b> Sinok Homestay, 3 kamar, di Balige, Kabupaten Toba. Sistem ini dipakai sejak Juli 2026 dan masih berjalan. Sebelumnya booking masuk lewat WhatsApp, rekapnya lama, dan beberapa kali terjadi pemesanan ganda.</p>
+        <p><b>Yang belum nyata:</b> semua angka dan screenshot di halaman ini masih berasal dari 784 baris data simulasi yang saya buat untuk membangunnya. Pemakaian aslinya baru berjalan beberapa minggu — belum cukup untuk melaporkan hasil apa pun, dan data pasca-implementasi belum bisa ditampilkan.</p>
+        <p><b>Limitasi yang masih ada:</b> perhitungan okupansi masih flat per bulan, belum prorata untuk booking lintas bulan. Proyeksi ~54% adalah estimasi dari data simulasi, bukan pengukuran.</p>
+        <p><b>Yang bisa dinilai dari sini:</b> saya membangun sistem yang cukup dipercaya sebuah usaha nyata untuk dipakai sehari-hari. Bukan bahwa saya sudah membuktikan sistem itu memperbaiki bisnisnya.</p>
       </div>
 
       <h4>Ringkasan</h4>
-      <p class="sinok-modal__para">Sinok Homestay adalah project simulasi sistem data dan otomasi untuk bisnis homestay. Project ini dibuat untuk menjawab masalah umum pada usaha penginapan kecil: data booking masih tersebar di chat, buku catatan, dan beberapa platform OTA, sehingga sulit dipantau secara cepat dan rawan terjadi double booking.</p>
+      <p class="sinok-modal__para">Sinok Homestay adalah penginapan 3 kamar di Balige, Kabupaten Toba. Sistem ini dibangun untuk masalah yang mereka alami sendiri: booking masuk lewat WhatsApp, tersebar di chat dan buku catatan, rekapnya memakan waktu, dan beberapa kali terjadi pemesanan ganda.</p>
       <p class="sinok-modal__para">Melalui sistem ini, booking dapat dicatat lewat Telegram Bot, tersimpan otomatis ke Google Sheets, memicu reminder update OTA, lalu divisualisasikan dalam dashboard okupansi dan revenue. Data historis juga digunakan untuk membuat proyeksi okupansi dan pendapatan bulan berikutnya.</p>
 
       <h4>Masalah</h4>
@@ -1005,10 +1006,10 @@
         <li>Telegram Bot memvalidasi format input, tipe kamar, tanggal, channel, dan membuat Booking ID unik.</li>
         <li>Dashboard interaktif menampilkan harga vs okupansi, peta musiman, sumber booking, okupansi per hari, dan revenue.</li>
         <li>Proyeksi okupansi dan revenue bulan depan dihitung otomatis dari tren historis.</li>
-        <li>Diuji pada 784 data transaksi simulasi sepanjang Juni 2024–Juni 2026.</li>
+        <li>Dikembangkan dan diuji pada 784 transaksi simulasi (Jun 2024–Jun 2026) sebelum dipasang di homestay aslinya pada Juli 2026.</li>
       </ul>
 
-      <h4>Angka Build (bukan hasil bisnis)</h4>
+      <h4>Angka Build (dari data uji, bukan hasil bisnis)</h4>
       <div class="result-grid">
         <div>
           <strong>&lt;1 mnt</strong>
@@ -1016,7 +1017,7 @@
         </div>
         <div>
           <strong>784</strong>
-          <span>Data Transaksi Simulasi</span>
+          <span>Transaksi simulasi (data uji)</span>
         </div>
         <div>
           <strong>~54%</strong>
@@ -1030,7 +1031,8 @@
 
       <div class="sinok-caveat">
         <strong>Langkah berikutnya</strong>
-        <p>Perhitungan sisa kamar real-time, validasi ketersediaan berdasarkan tanggal check-in/check-out, dan forecast yang adaptif terhadap musim liburan serta pemesanan mendadak. Semuanya menunggu satu hal: data booking dari homestay yang sungguhan.</p>
+        <p>Perhitungan sisa kamar real-time dan validasi ketersediaan berdasarkan tanggal check-in/check-out — dua hal yang langsung menyerang risiko double booking.</p>
+        <p>Lalu yang paling penting: setelah cukup bulan berjalan, mengukur sebelum-sesudah dengan data booking asli Sinok. Sampai itu ada, project ini membuktikan sistemnya jalan — belum membuktikan bisnisnya membaik.</p>
       </div>
 
       <h4>Tech Stack</h4>
@@ -1044,13 +1046,14 @@
 
       <div class="tldr">
         <strong>Read this first</strong>
-        <p><b>What this is:</b> a Telegram → n8n → Google Sheets → dashboard → forecast pipeline that genuinely runs end to end.</p>
-        <p><b>What it isn't:</b> no homestay uses it. I generated all 784 rows myself. Occupancy is still computed flat per month, not prorated across booking dates — the arithmetic is right, the room accounting isn't.</p>
-        <p><b>What you can judge from it:</b> whether I can wire a working system together. Not whether I've ever improved a business.</p>
+        <p><b>What's real:</b> Sinok Homestay — three rooms, in Balige, Toba Regency. It has been running on this system since July 2026 and still is. Before that, bookings came in over WhatsApp, the monthly recap took ages, and double bookings happened more than once.</p>
+        <p><b>What isn't yet:</b> every number and screenshot on this page still comes from the 784 rows of simulated data I built it against. Real use is only weeks old — not enough to report any outcome, and the post-implementation data isn't publishable yet.</p>
+        <p><b>Limitations that remain:</b> occupancy is still computed flat per month, not prorated across booking dates. The ~54% projection is an estimate from simulated data, not a measurement.</p>
+        <p><b>What you can judge from it:</b> that I built something a real business trusted enough to run on daily. Not that I've proven it improved their business.</p>
       </div>
 
       <h4>Overview</h4>
-      <p class="sinok-modal__para">Sinok Homestay is a simulated data &amp; automation system for a homestay business. It's built to tackle a common problem in small lodging businesses: booking data scattered across chat, notebooks, and several OTA platforms — hard to monitor quickly and prone to double booking.</p>
+      <p class="sinok-modal__para">Sinok Homestay is a three-room guesthouse in Balige, Toba Regency. The system was built for a problem they actually had: bookings arriving over WhatsApp, scattered across chats and notebooks, slow to reconcile, and double-booked more than once.</p>
       <p class="sinok-modal__para">With this system, bookings are logged via a Telegram Bot, saved automatically to Google Sheets, trigger OTA-update reminders, then get visualized in an occupancy and revenue dashboard. Historical data also feeds next-month occupancy and revenue projections.</p>
 
       <h4>Problem</h4>
@@ -1137,10 +1140,10 @@
         <li>The Telegram Bot validates input format, room type, dates, channel, and generates a unique Booking ID.</li>
         <li>Interactive dashboard shows price vs occupancy, a seasonal map, booking source, daily occupancy, and revenue.</li>
         <li>Next-month occupancy and revenue projections are computed automatically from historical trends.</li>
-        <li>Tested on 784 simulated transaction records spanning June 2024–June 2026.</li>
+        <li>Developed and tested against 784 simulated transactions (Jun 2024–Jun 2026) before going live at the real homestay in July 2026.</li>
       </ul>
 
-      <h4>Build Numbers (not business results)</h4>
+      <h4>Build Numbers (from test data, not business results)</h4>
       <div class="result-grid">
         <div>
           <strong>&lt;1 min</strong>
@@ -1148,7 +1151,7 @@
         </div>
         <div>
           <strong>784</strong>
-          <span>Simulated Transactions</span>
+          <span>Simulated transactions (test data)</span>
         </div>
         <div>
           <strong>~54%</strong>
@@ -1162,7 +1165,8 @@
 
       <div class="sinok-caveat">
         <strong>What comes next</strong>
-        <p>Real-time remaining-room computation, availability validation from check-in/check-out dates, and a forecast that adapts to holiday seasons and last-minute bookings. All of it waits on one thing: booking data from a homestay that actually exists.</p>
+        <p>Real-time remaining-room computation and availability validation from check-in/check-out dates — the two things that attack the double-booking risk directly.</p>
+        <p>Then the one that matters: once enough months have passed, measuring before and after on Sinok's real booking data. Until that exists, this project proves the system runs — not that the business got better.</p>
       </div>
 
       <h4>Tech Stack</h4>

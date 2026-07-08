@@ -1911,11 +1911,6 @@ body.modal-open {
   border: 1px solid var(--border);
   white-space: nowrap;
 }
-.data-badge--simulated {
-  color: #92400E;
-  background: #FFFBEB;
-  border-color: #FDE68A;
-}
 .data-badge--public {
   color: var(--slate-mid);
   background: var(--bg);
@@ -1924,6 +1919,28 @@ body.modal-open {
   color: var(--green);
   background: #ECFDF5;
   border-color: #A7F3D0;
+}
+/* Deployed at a real business — but the numbers on the page are still from test data.
+   Deliberately not the same badge as a measured outcome. */
+.data-badge--live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+}
+.data-badge--live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: livePulse 2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
 /* ── Placeholder card: the honest gap in the portfolio ── */
