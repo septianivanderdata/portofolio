@@ -2,20 +2,19 @@
 const translations = {
   en: {
     'nav.about': 'About',
-    'nav.skills': 'Skills',
+    'nav.services': 'Services',
     'nav.projects': 'Projects',
     'nav.experience': 'Experience',
-    'nav.certs': 'Certs',
     'nav.contact': 'Contact',
 
     'hero.eyebrow': "Hello, I'm",
     'hero.role': 'Data & Automation Specialist',
     'hero.bio': 'I turn messy operational data — bookings, transactions, daily records — into dashboards, automation, and forecasts that are actually usable. Focused on SMEs and small businesses still working manually.',
-    'hero.cta1': 'View My Work',
-    'hero.cta2': 'Get In Touch',
-    'hero.stat1': 'End-to-End Case Studies',
-    'hero.stat2': 'Phases: Dashboard · Automation · Forecast',
-    'hero.stat3': 'Open for Freelance',
+    'hero.cta1': 'See What I Build',
+    'hero.cta2': 'Start a Conversation',
+    'hero.stat1': 'Years in Data & Finance',
+    'hero.stat2': 'Ministry of Finance, RI',
+    'hero.stat3': 'Power BI · n8n · Sheets',
     'hero.badge1': 'Automation First',
     'hero.badge2': 'Data Driven',
 
@@ -23,78 +22,125 @@ const translations = {
     'about.title': 'Who I Am',
     'about.p1': "I'm a Data & Automation Specialist with 7+ years at the Ministry of Finance, where I integrate compliance and financial management with data analysis — building dashboards, automating workflows, and turning scattered records into clear, usable insights.",
     'about.p2': "My focus is practical: taking messy operational data — bookings, transactions, daily records — and turning them into dashboards, automation, and forecasts that small businesses and SMEs can actually act on. Tools I use daily: Power BI, Google Sheets, Looker Studio, n8n, and Telegram Bot API.",
-    'about.p3': "Currently building my portfolio of end-to-end case studies. Open for freelance projects where data and automation can replace manual work.",
+    'about.p3': "To be straight with you: the two projects below are builds, not client outcomes — one runs on data I generated, the other on a public dataset. I'm looking for the first real business to change that, and I'll do it free.",
     'about.quickfacts': 'Quick Facts',
     'about.fact1.label': 'Education',
     'about.fact1.val': 'PKN STAN · Asia Cyber University',
     'about.fact2.label': 'Location',
     'about.fact2.val': 'Indonesia',
     'about.fact3.label': 'Status',
-    'about.fact3.val': 'Open to opportunities',
+    'about.fact3.val': 'Taking freelance projects',
     'about.fact4.label': 'Languages',
     'about.fact4.val': 'Indonesian, English',
     'about.cv': 'Download CV',
+
+    'services.tag': 'Services',
+    'services.title': 'What I Can Build For You',
+    'services.subtitle': "Three things, done properly. If your problem isn't one of these, I'll say so.",
+    'service1.title': 'Dashboard & Reporting',
+    'service1.desc': 'Your numbers live in five spreadsheets and nobody trusts them. I clean the data, model it properly, and build one dashboard you can actually make decisions from.',
+    'service1.item1': 'Data cleaning & quality audit',
+    'service1.item2': 'Power BI or Looker Studio dashboard',
+    'service1.item3': 'Handover doc so you can maintain it',
+    'service1.timeline': 'Typical: 2–3 weeks',
+    'service2.title': 'Workflow Automation',
+    'service2.desc': 'Manual re-typing between WhatsApp, spreadsheets, and marketplaces. I connect them so data lands once, in the right place, without anyone copying it.',
+    'service2.item1': 'n8n workflows, Telegram/WhatsApp bots',
+    'service2.item2': 'Google Sheets & API integrations',
+    'service2.item3': "Error alerts so failures don't stay silent",
+    'service2.timeline': 'Typical: 1–2 weeks',
+    'service3.title': 'Data Cleanup & Audit',
+    'service3.desc': "Before any dashboard is worth building, the data has to be trustworthy. Sometimes that's the whole job — and it's the one most people skip.",
+    'service3.item1': 'Outlier & duplicate detection',
+    'service3.item2': 'Written findings, not just a cleaned file',
+    'service3.item3': 'Repeatable pipeline, not a one-off fix',
+    'service3.timeline': 'Typical: 3–7 days',
+    'process.title': "How We'd Work",
+    'process.s1.title': '1 · Free call (30 min)',
+    'process.s1.desc': "You describe the manual work. I tell you honestly whether automation helps, and whether I'm the right person.",
+    'process.s2.title': '2 · Look at the real data',
+    'process.s2.desc': "I audit a sample before quoting anything. No fixed price until I know what's actually in there.",
+    'process.s3.title': '3 · Scope & price, in writing',
+    'process.s3.desc': "Fixed scope, fixed price, fixed date. What's excluded is written down too.",
+    'process.s4.title': '4 · Build & hand over',
+    'process.s4.desc': 'You get the working system, the source files, and documentation. Not a black box you have to pay me to touch.',
+    'services.ctaText': 'Currently taking on freelance projects. First conversation costs nothing.',
+    'services.ctaBtn': 'Tell Me About Your Problem',
 
     'skills.tag': 'Skills',
     'skills.title': 'What I Work With',
     'skills.level.advanced': 'Advanced',
     'skills.level.intermediate': 'Intermediate',
+    'skills.note': "Only listed if there's work on this page that demonstrates it. Learning SQL and machine learning — they'll appear here once something I've built proves it.",
+
+    'badge.simulated': 'Simulated data',
+    'badge.public': 'Public dataset',
+    'badge.real': 'Real client data',
 
     'projects.tag': 'Projects',
     'projects.title': 'Featured Work',
+    'projects.subtitle': 'Two builds, labelled honestly. Neither is client work yet — the badge on each card tells you exactly what the data is.',
     'projects.filter.all': 'All',
     'projects.filter.data': 'Data Analysis',
     'projects.filter.bi': 'Business Intelligence',
     'projects.filter.automation': 'Automation',
 
     'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting System',
-    'proj.sinok.desc': 'Automation and business intelligence system to help homestay businesses record bookings, reduce double-booking risk, monitor occupancy, and project monthly revenue.',
-    'proj.sinok.cta': 'View Case Study →',
-    'proj.sinok.aria': 'View the Sinok Homestay case study',
+    'proj.sinok.desc': 'A working Telegram → n8n → Sheets → dashboard pipeline, built on data I generated myself. It demonstrates the plumbing, not a business outcome. No real homestay uses it.',
+    'proj.sinok.cta': 'View Build Notes →',
+    'proj.sinok.aria': 'View the Sinok Homestay build notes',
     'proj.powerbi.title': 'Retail Business Intelligence — Sales, Customer & Return Analysis',
-    'proj.powerbi.desc': '541K rows of raw data, cleaned until trustworthy. Return Rate corrected from 4.88% to 2.15% — a 2-page dashboard that prioritizes data quality, not just visuals.',
-    'proj.powerbi.cta': 'View Case Study →',
-    'proj.powerbi.aria': 'View the Retail Business Intelligence case study',
+    'proj.powerbi.desc': "UCI Online Retail — a dataset thousands of people have used. What's mine is the investigation: tracing two cancelled mega-orders that were inflating the return rate by more than double.",
+    'proj.powerbi.cta': 'View Build Notes →',
+    'proj.powerbi.aria': 'View the Retail Business Intelligence build notes',
+    'proj.next.tag': 'Next up',
+    'proj.next.title': 'A real business, real data',
+    'proj.next.desc': "The two projects above prove I can build. Neither proves I've changed a business. I'm looking for one small business — warung, kos, laundry, online shop — willing to hand over their messy records. Free, for the first one.",
+    'proj.next.cta': 'Be that business →',
 
     'exp.tag': 'Experience',
     'exp.title': 'Career Journey',
     'exp.current': 'Current',
+    'exp.inProgress': 'In progress',
+    'exp.groupWork': 'Work',
+    'exp.groupEdu': 'Education',
     'exp.job1.date': 'Jan 2021 — Present',
     'exp.job1.role': 'Internal Compliance',
     'exp.job1.company': 'Ministry of Finance, Republic of Indonesia · Full-time',
-    'exp.job1.desc': 'Integrating compliance functions with data analysis to generate meaningful insights. Focus on data processing, dashboard development, and reporting using Microsoft Power BI.',
+    'exp.job1.desc': 'Building Power BI dashboards and reporting pipelines for internal compliance monitoring — turning scattered records into reviews that no longer depend on manual Excel consolidation.',
     'exp.job2.date': 'Dec 2018 — Jan 2021',
     'exp.job2.role': 'Finance Officer',
     'exp.job2.company': 'Ministry of Finance, Republic of Indonesia · Full-time',
-    'exp.job2.desc': 'Integrating financial management functions with data analysis to generate meaningful insights. Focus on financial data processing, dashboard development, and reporting.',
+    'exp.job2.desc': 'Budget execution, reconciliation, and financial reporting. Where the process was manual and repetitive, I rebuilt it in spreadsheets — the habit that eventually turned into dashboards.',
     'exp.edu1.role': 'Bachelor of Accounting',
-    'exp.edu1.company': 'Asia Cyber University · GPA 3.89/4.0',
-    'exp.edu1.desc': 'Bachelor of Accounting with focus on Accounting and Data Analysis.',
+    'exp.edu1.company': 'Asia Cyber University',
+    'exp.edu1.desc': 'Accounting with a focus on data analysis. Expected 2027 — current GPA 3.89/4.0, not a final result.',
     'exp.edu2.role': 'Diploma',
     'exp.edu2.company': 'Politeknik Keuangan Negara STAN',
     'exp.edu2.desc': 'State finance polytechnic specializing in accounting and state financial management.',
     'certs.tag': 'Certifications',
     'certs.title': 'Licenses & Certifications',
-    'cert1.name': 'Membangun Proyek Deep Learning Tingkat Mahir',
-    'cert1.date': 'Apr 2026 · Expires Apr 2029',
-    'cert2.name': 'Belajar Fundamental Deep Learning',
-    'cert2.date': 'Mar 2026 · Expires Mar 2029',
     'cert3.name': 'Machine Learning (Fresh Graduate Academy)',
     'cert3.date': 'Nov 2025',
     'cert4.name': 'Belajar Machine Learning untuk Pemula',
-    'cert4.date': 'Dec 2025 · Expires Dec 2028',
+    'cert4.date': 'Dec 2025',
 
     'contact.tag': 'Contact',
     'contact.title': "Let's Work Together",
-    'contact.subtitle': "Have a project in mind or want to discuss opportunities? I'd love to hear from you.",
-    'contact.availability': 'Available for freelance & full-time roles',
+    'contact.subtitle': "Describe the manual work that's eating your week. If I can't help, I'll tell you that too.",
+    'contact.availability': 'Taking freelance projects now',
+    'contact.secondary': 'Also open to full-time roles in data analysis or BI.',
     'contact.form.name': 'Name',
     'contact.form.namePh': 'Your name',
     'contact.form.subject': 'Subject',
     'contact.form.subjectPh': 'Project discussion',
     'contact.form.message': 'Message',
-    'contact.form.messagePh': 'Tell me about your project...',
+    'contact.form.messagePh': "What's the manual work you want gone?",
     'contact.form.send': 'Send Message',
+    'contact.form.sending': 'Sending…',
+    'contact.form.success': "Sent. I'll reply within two working days.",
+    'contact.form.error': 'That failed to send. Email septianivander.data@gmail.com directly.',
+    'contact.form.invalid': 'Fill in your name, a valid email, and a message.',
     'contact.form.opening': 'Opening your email app…',
     'contact.form.fallback': 'Your browser blocked the email app. Write to septianivander.data@gmail.com directly.',
 
@@ -102,20 +148,19 @@ const translations = {
   },
   id: {
     'nav.about': 'Tentang',
-    'nav.skills': 'Keahlian',
+    'nav.services': 'Layanan',
     'nav.projects': 'Proyek',
     'nav.experience': 'Pengalaman',
-    'nav.certs': 'Sertifikasi',
     'nav.contact': 'Kontak',
 
     'hero.eyebrow': 'Halo, saya',
     'hero.role': 'Data & Automation Specialist',
     'hero.bio': 'Saya ubah data operasional yang berantakan — booking, transaksi, catatan harian — jadi dashboard, otomasi, dan proyeksi yang langsung bisa dipakai. Fokus untuk UMKM dan bisnis kecil yang masih kerja manual.',
-    'hero.cta1': 'Lihat Karya Saya',
-    'hero.cta2': 'Hubungi Saya',
-    'hero.stat1': 'Studi Kasus End-to-End',
-    'hero.stat2': '3 Fase: Dashboard · Otomasi · Forecasting',
-    'hero.stat3': 'Open for Freelance',
+    'hero.cta1': 'Lihat Yang Saya Kerjakan',
+    'hero.cta2': 'Mulai Obrolan',
+    'hero.stat1': 'Tahun di Data & Keuangan',
+    'hero.stat2': 'Kementerian Keuangan RI',
+    'hero.stat3': 'Power BI · n8n · Sheets',
     'hero.badge1': 'Automation First',
     'hero.badge2': 'Data Driven',
 
@@ -123,78 +168,125 @@ const translations = {
     'about.title': 'Tentang Saya',
     'about.p1': 'Saya adalah Data & Automation Specialist dengan 7+ tahun di Kementerian Keuangan, mengintegrasikan fungsi kepatuhan dan keuangan dengan analisis data — membangun dashboard, mengotomasi alur kerja, dan mengubah data yang tercecer menjadi insight yang jelas dan bisa dipakai.',
     'about.p2': 'Fokus saya praktis: mengambil data operasional yang berantakan — booking, transaksi, catatan harian — dan mengubahnya jadi dashboard, otomasi, dan proyeksi yang bisa langsung digunakan UMKM dan bisnis kecil. Tools yang saya pakai sehari-hari: Power BI, Google Sheets, Looker Studio, n8n, dan Telegram Bot API.',
-    'about.p3': 'Sedang membangun portofolio studi kasus end-to-end. Terbuka untuk proyek freelance di mana data dan otomasi bisa menggantikan kerja manual.',
+    'about.p3': 'Terus terang: dua project di bawah adalah hasil bangun, bukan hasil untuk klien — satu jalan di atas data yang saya buat sendiri, satu lagi dataset publik. Saya sedang mencari bisnis nyata pertama untuk mengubah itu, dan yang pertama gratis.',
     'about.quickfacts': 'Fakta Singkat',
     'about.fact1.label': 'Pendidikan',
     'about.fact1.val': 'PKN STAN · Asia Cyber University',
     'about.fact2.label': 'Lokasi',
     'about.fact2.val': 'Indonesia',
     'about.fact3.label': 'Status',
-    'about.fact3.val': 'Terbuka untuk peluang baru',
+    'about.fact3.val': 'Menerima proyek freelance',
     'about.fact4.label': 'Bahasa',
     'about.fact4.val': 'Indonesia, Inggris',
     'about.cv': 'Unduh CV',
+
+    'services.tag': 'Layanan',
+    'services.title': 'Yang Bisa Saya Bangun Untuk Anda',
+    'services.subtitle': 'Tiga hal, dikerjakan benar. Kalau masalah Anda bukan salah satunya, saya akan bilang.',
+    'service1.title': 'Dashboard & Pelaporan',
+    'service1.desc': 'Angka Anda tersebar di lima spreadsheet dan tak ada yang mempercayainya. Saya bersihkan datanya, modelkan dengan benar, dan bangun satu dashboard yang bisa dipakai mengambil keputusan.',
+    'service1.item1': 'Pembersihan data & audit kualitas',
+    'service1.item2': 'Dashboard Power BI atau Looker Studio',
+    'service1.item3': 'Dokumen serah terima agar Anda bisa merawatnya sendiri',
+    'service1.timeline': 'Umumnya: 2–3 minggu',
+    'service2.title': 'Otomasi Alur Kerja',
+    'service2.desc': 'Ketik ulang manual antara WhatsApp, spreadsheet, dan marketplace. Saya sambungkan supaya data masuk sekali, ke tempat yang benar, tanpa ada yang menyalin.',
+    'service2.item1': 'Workflow n8n, bot Telegram/WhatsApp',
+    'service2.item2': 'Integrasi Google Sheets & API',
+    'service2.item3': 'Notifikasi error supaya kegagalan tidak diam-diam',
+    'service2.timeline': 'Umumnya: 1–2 minggu',
+    'service3.title': 'Pembersihan & Audit Data',
+    'service3.desc': 'Sebelum dashboard apa pun layak dibangun, datanya harus bisa dipercaya. Kadang itulah seluruh pekerjaannya — dan itu yang paling sering dilewati orang.',
+    'service3.item1': 'Deteksi outlier & duplikat',
+    'service3.item2': 'Temuan tertulis, bukan sekadar file bersih',
+    'service3.item3': 'Pipeline yang bisa diulang, bukan tambalan sekali pakai',
+    'service3.timeline': 'Umumnya: 3–7 hari',
+    'process.title': 'Cara Kita Bekerja',
+    'process.s1.title': '1 · Telepon gratis (30 menit)',
+    'process.s1.desc': 'Anda ceritakan kerja manualnya. Saya jawab jujur apakah otomasi membantu, dan apakah saya orang yang tepat.',
+    'process.s2.title': '2 · Lihat data aslinya',
+    'process.s2.desc': 'Saya audit sampelnya sebelum memberi harga. Tidak ada harga pasti sebelum saya tahu isinya.',
+    'process.s3.title': '3 · Lingkup & harga, tertulis',
+    'process.s3.desc': 'Lingkup tetap, harga tetap, tanggal tetap. Yang tidak termasuk juga ditulis.',
+    'process.s4.title': '4 · Bangun & serah terima',
+    'process.s4.desc': 'Anda dapat sistemnya, file sumbernya, dan dokumentasinya. Bukan kotak hitam yang harus bayar saya untuk menyentuhnya.',
+    'services.ctaText': 'Sedang menerima proyek freelance. Obrolan pertama tidak dipungut biaya.',
+    'services.ctaBtn': 'Ceritakan Masalah Anda',
 
     'skills.tag': 'Keahlian',
     'skills.title': 'Yang Saya Gunakan',
     'skills.level.advanced': 'Mahir',
     'skills.level.intermediate': 'Menengah',
+    'skills.note': 'Hanya dicantumkan kalau ada karya di halaman ini yang membuktikannya. SQL dan machine learning sedang dipelajari — akan muncul di sini setelah ada yang saya bangun untuk membuktikannya.',
+
+    'badge.simulated': 'Data simulasi',
+    'badge.public': 'Dataset publik',
+    'badge.real': 'Data klien nyata',
 
     'projects.tag': 'Proyek',
     'projects.title': 'Karya Unggulan',
+    'projects.subtitle': 'Dua hasil bangun, dilabeli jujur. Belum ada yang berupa kerja klien — badge di tiap kartu memberi tahu persis datanya apa.',
     'projects.filter.all': 'Semua',
     'projects.filter.data': 'Analisis Data',
     'projects.filter.bi': 'Business Intelligence',
     'projects.filter.automation': 'Automation',
 
     'proj.sinok.title': 'Sinok Homestay — Booking & Forecasting System',
-    'proj.sinok.desc': 'Sistem otomasi dan business intelligence untuk membantu bisnis homestay mencatat booking, mengurangi risiko double booking, memantau okupansi, dan memproyeksikan revenue bulanan.',
-    'proj.sinok.cta': 'Lihat Case Study →',
-    'proj.sinok.aria': 'Lihat detail case study Sinok Homestay',
+    'proj.sinok.desc': 'Pipeline Telegram → n8n → Sheets → dashboard yang benar-benar jalan, di atas data yang saya buat sendiri. Ini membuktikan rangkaian sistemnya, bukan hasil bisnisnya. Tidak ada homestay nyata yang memakainya.',
+    'proj.sinok.cta': 'Lihat Catatan Build →',
+    'proj.sinok.aria': 'Lihat catatan build Sinok Homestay',
     'proj.powerbi.title': 'Retail Business Intelligence — Sales, Customer & Return Analysis',
-    'proj.powerbi.desc': '541K baris data mentah, dibersihkan sampai bisa dipercaya. Return Rate terkoreksi dari 4.88% ke 2.15% — dashboard 2 halaman yang mengutamakan kualitas data, bukan sekadar visual.',
-    'proj.powerbi.cta': 'Lihat Case Study →',
-    'proj.powerbi.aria': 'Lihat detail case study Retail Business Intelligence',
+    'proj.powerbi.desc': 'UCI Online Retail — dataset yang sudah dipakai ribuan orang. Yang jadi milik saya adalah investigasinya: melacak dua mega-order yang dibatalkan dan menggelembungkan return rate lebih dari dua kali lipat.',
+    'proj.powerbi.cta': 'Lihat Catatan Build →',
+    'proj.powerbi.aria': 'Lihat catatan build Retail Business Intelligence',
+    'proj.next.tag': 'Berikutnya',
+    'proj.next.title': 'Bisnis nyata, data nyata',
+    'proj.next.desc': 'Dua project di atas membuktikan saya bisa membangun. Tidak ada yang membuktikan saya pernah mengubah sebuah bisnis. Saya mencari satu usaha kecil — warung, kos, laundry, toko online — yang mau menyerahkan catatan berantakannya. Gratis, untuk yang pertama.',
+    'proj.next.cta': 'Jadilah bisnis itu →',
 
     'exp.tag': 'Pengalaman',
     'exp.title': 'Perjalanan Karier',
     'exp.current': 'Sekarang',
+    'exp.inProgress': 'Sedang berjalan',
+    'exp.groupWork': 'Pekerjaan',
+    'exp.groupEdu': 'Pendidikan',
     'exp.job1.date': 'Jan 2021 — Sekarang',
     'exp.job1.role': 'Internal Compliance',
     'exp.job1.company': 'Kementerian Keuangan Republik Indonesia · Full-time',
-    'exp.job1.desc': 'Mengintegrasikan fungsi kepatuhan dengan analisis data untuk menghasilkan wawasan yang bermakna. Fokus pada pemrosesan data, pengembangan dashboard, dan pelaporan menggunakan Microsoft Power BI.',
+    'exp.job1.desc': 'Membangun dashboard Power BI dan alur pelaporan untuk pemantauan kepatuhan internal — mengubah catatan yang tercecer menjadi telaah yang tidak lagi bergantung pada konsolidasi Excel manual.',
     'exp.job2.date': 'Des 2018 — Jan 2021',
     'exp.job2.role': 'Finance Officer',
     'exp.job2.company': 'Kementerian Keuangan Republik Indonesia · Full-time',
-    'exp.job2.desc': 'Mengintegrasikan fungsi manajemen keuangan dengan analisis data untuk menghasilkan wawasan yang bermakna. Fokus pada pemrosesan data keuangan, pengembangan dashboard, dan pelaporan.',
+    'exp.job2.desc': 'Pelaksanaan anggaran, rekonsiliasi, dan pelaporan keuangan. Di mana prosesnya manual dan berulang, saya bangun ulang di spreadsheet — kebiasaan yang akhirnya berkembang jadi dashboard.',
     'exp.edu1.role': 'Sarjana Akuntansi',
-    'exp.edu1.company': 'Asia Cyber University · IPK 3.89/4.0',
-    'exp.edu1.desc': 'Sarjana Akuntansi dengan fokus pada Akuntansi dan Analisis Data.',
+    'exp.edu1.company': 'Asia Cyber University',
+    'exp.edu1.desc': 'Akuntansi dengan fokus analisis data. Perkiraan lulus 2027 — IPK berjalan 3.89/4.0, bukan hasil akhir.',
     'exp.edu2.role': 'Diploma',
     'exp.edu2.company': 'Politeknik Keuangan Negara STAN',
     'exp.edu2.desc': 'Politeknik keuangan negara dengan spesialisasi akuntansi dan pengelolaan keuangan negara.',
     'certs.tag': 'Sertifikasi',
     'certs.title': 'Lisensi & Sertifikasi',
-    'cert1.name': 'Membangun Proyek Deep Learning Tingkat Mahir',
-    'cert1.date': 'Apr 2026 · Berlaku hingga Apr 2029',
-    'cert2.name': 'Belajar Fundamental Deep Learning',
-    'cert2.date': 'Mar 2026 · Berlaku hingga Mar 2029',
     'cert3.name': 'Machine Learning (Fresh Graduate Academy)',
     'cert3.date': 'Nov 2025',
     'cert4.name': 'Belajar Machine Learning untuk Pemula',
-    'cert4.date': 'Des 2025 · Berlaku hingga Des 2028',
+    'cert4.date': 'Des 2025',
 
     'contact.tag': 'Kontak',
     'contact.title': 'Mari Bekerja Sama',
-    'contact.subtitle': 'Punya proyek atau ingin berdiskusi tentang peluang? Saya senang mendengar dari Anda.',
-    'contact.availability': 'Tersedia untuk pekerjaan freelance & full-time',
+    'contact.subtitle': 'Ceritakan kerja manual yang menghabiskan waktu Anda tiap minggu. Kalau saya tidak bisa membantu, itu juga akan saya bilang.',
+    'contact.availability': 'Sedang menerima proyek freelance',
+    'contact.secondary': 'Juga terbuka untuk posisi full-time di analisis data atau BI.',
     'contact.form.name': 'Nama',
     'contact.form.namePh': 'Nama Anda',
     'contact.form.subject': 'Subjek',
     'contact.form.subjectPh': 'Diskusi proyek',
     'contact.form.message': 'Pesan',
-    'contact.form.messagePh': 'Ceritakan tentang proyek Anda...',
+    'contact.form.messagePh': 'Kerja manual apa yang ingin Anda hilangkan?',
     'contact.form.send': 'Kirim Pesan',
+    'contact.form.sending': 'Mengirim…',
+    'contact.form.success': 'Terkirim. Saya balas dalam dua hari kerja.',
+    'contact.form.error': 'Gagal terkirim. Email langsung ke septianivander.data@gmail.com.',
+    'contact.form.invalid': 'Isi nama, email yang valid, dan pesan Anda.',
     'contact.form.opening': 'Membuka aplikasi email Anda…',
     'contact.form.fallback': 'Browser Anda memblokir aplikasi email. Kirim langsung ke septianivander.data@gmail.com.',
 
@@ -203,6 +295,12 @@ const translations = {
 };
 
 const EMAIL = 'septianivander.data@gmail.com';
+
+// TODO(septian): sign up at https://formspree.io (free), create a form, and paste its endpoint
+// here — e.g. 'https://formspree.io/f/xxxxxxxx'. While this stays empty the form degrades to
+// mailto:, which phones and popup blockers handle badly and which loses most submissions.
+const FORM_ENDPOINT = '';
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 
@@ -318,43 +416,83 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ─── Contact form (mailto) ───────────────────────────────────────
+// ─── Contact form ────────────────────────────────────────────────
 const contactForm = document.getElementById('contactForm');
+const contactSubmit = document.getElementById('contactSubmit');
+const formStatus = document.getElementById('formStatus');
 
-contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  const subject = encodeURIComponent(data.subject || 'Portfolio Contact');
-  const body = encodeURIComponent(
-    `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`
-  );
-
-  showFormStatus(translations[currentLang]['contact.form.opening'], 'info');
-
-  // Popup blockers kill window.open on mailto: — a same-tab navigation is reliable.
-  window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-
-  // If the mail client never takes over, the page stays put. Tell the user.
-  setTimeout(() => {
-    if (!document.hidden) {
-      showFormStatus(translations[currentLang]['contact.form.fallback'], 'warn');
-    }
-  }, 2000);
-});
+function t(key) {
+  return translations[currentLang][key];
+}
 
 function showFormStatus(message, kind) {
-  let el = document.getElementById('formStatus');
-  if (!el) {
-    el = document.createElement('p');
-    el.id = 'formStatus';
-    el.className = 'form-status';
-    el.setAttribute('role', 'status');
-    el.setAttribute('aria-live', 'polite');
-    contactForm.appendChild(el);
-  }
-  el.dataset.kind = kind;
-  el.textContent = message;
+  formStatus.hidden = false;
+  formStatus.dataset.kind = kind;
+  formStatus.textContent = message;
 }
+
+function isValidSubmission(data) {
+  return Boolean(data.name.trim()) &&
+         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()) &&
+         Boolean(data.message.trim());
+}
+
+// No endpoint configured yet: fall back to mailto:, and be honest when it fails.
+function submitViaMailto(data) {
+  const subject = encodeURIComponent(data.subject || 'Portfolio Contact');
+  const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`);
+
+  showFormStatus(t('contact.form.opening'), 'info');
+  window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+
+  // If a mail client had taken over, the tab would be hidden by now.
+  setTimeout(() => {
+    if (!document.hidden) showFormStatus(t('contact.form.fallback'), 'warn');
+  }, 2000);
+}
+
+async function submitViaEndpoint(form) {
+  const response = await fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' },
+  });
+  if (!response.ok) throw new Error(`Form endpoint returned ${response.status}`);
+}
+
+contactForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(contactForm));
+
+  // The honeypot is invisible; only a bot fills it.
+  if (data._gotcha) return;
+
+  if (!isValidSubmission(data)) {
+    showFormStatus(t('contact.form.invalid'), 'error');
+    return;
+  }
+
+  if (!FORM_ENDPOINT) {
+    submitViaMailto(data);
+    return;
+  }
+
+  contactSubmit.disabled = true;
+  contactSubmit.textContent = t('contact.form.sending');
+
+  try {
+    await submitViaEndpoint(contactForm);
+    contactForm.reset();
+    showFormStatus(t('contact.form.success'), 'success');
+  } catch (err) {
+    console.error(err);
+    showFormStatus(t('contact.form.error'), 'error');
+  } finally {
+    contactSubmit.disabled = false;
+    contactSubmit.textContent = t('contact.form.send');
+  }
+});
 
 // ─── Hero stat counters ──────────────────────────────────────────
 function animateCounter(el, target, suffix) {
