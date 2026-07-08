@@ -104,7 +104,7 @@ Once you have the measured before/after:
 - [ ] Swap Sinok's badge from `data-badge--live` to `data-badge--real` (`badge.measured`)
 - [ ] Rewrite the Sinok TL;DR — the "what isn't yet" paragraph becomes the results paragraph
 - [ ] Replace the simulated figures in the Build Numbers grid with real ones
-- [ ] Delete the `.project-card--placeholder` slot
+- [x] Delete the `.project-card--placeholder` slot (done — card, CSS, and `proj.next.*` keys removed)
 - [ ] Update `about.p3` in `js/main.js` — it currently says there's no measured outcome yet. A false
       line *about honesty* is worse than no line at all.
 - [ ] Add the owner's quote. A testimonial section becomes worth building once you have one real

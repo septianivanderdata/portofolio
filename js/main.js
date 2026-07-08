@@ -75,7 +75,6 @@ const translations = {
 
     'badge.live': 'Live · real business',
     'badge.public': 'Public dataset',
-    'badge.measured': 'Measured outcome',
 
     'projects.tag': 'Projects',
     'projects.title': 'Featured Work',
@@ -93,10 +92,6 @@ const translations = {
     'proj.powerbi.desc': "UCI Online Retail — a dataset thousands of people have used. What's mine is the investigation: tracing two cancelled mega-orders that were inflating the return rate by more than double.",
     'proj.powerbi.cta': 'View Build Notes →',
     'proj.powerbi.aria': 'View the Retail Business Intelligence build notes',
-    'proj.next.tag': 'Next up',
-    'proj.next.title': 'Proof that it worked',
-    'proj.next.desc': "Sinok runs on the system. What I don't have yet is the number that matters: hours saved, double bookings avoided, measured against how it was before. That takes months of real data, not a demo. It'll go here when it exists.",
-    'proj.next.cta': 'Want to be the next one? →',
 
     'exp.tag': 'Experience',
     'exp.title': 'Career Journey',
@@ -122,27 +117,14 @@ const translations = {
     'certs.title': 'Licenses & Certifications',
     'cert3.name': 'Machine Learning (Fresh Graduate Academy)',
     'cert3.date': 'Nov 2025',
-    'cert4.name': 'Belajar Machine Learning untuk Pemula',
-    'cert4.date': 'Dec 2025',
+    'cert4.name': 'Membangun Proyek Deep Learning Tingkat Mahir',
+    'cert4.date': 'Apr 2026 · Expires Apr 2029',
 
     'contact.tag': 'Contact',
     'contact.title': "Let's Work Together",
     'contact.subtitle': "Describe the manual work that's eating your week. If I can't help, I'll tell you that too.",
     'contact.availability': 'Taking freelance projects now',
     'contact.secondary': 'Also open to full-time roles in data analysis or BI.',
-    'contact.form.name': 'Name',
-    'contact.form.namePh': 'Your name',
-    'contact.form.subject': 'Subject',
-    'contact.form.subjectPh': 'Project discussion',
-    'contact.form.message': 'Message',
-    'contact.form.messagePh': "What's the manual work you want gone?",
-    'contact.form.send': 'Send Message',
-    'contact.form.sending': 'Sending…',
-    'contact.form.success': "Sent. I'll reply within two working days.",
-    'contact.form.error': 'That failed to send. Email septianivander.data@gmail.com directly.',
-    'contact.form.invalid': 'Fill in your name, a valid email, and a message.',
-    'contact.form.opening': 'Opening your email app…',
-    'contact.form.fallback': 'Your browser blocked the email app. Write to septianivander.data@gmail.com directly.',
 
     'footer.copy': '© 2026 Septian Ivander. Built with HTML, CSS & JavaScript.',
   },
@@ -221,7 +203,6 @@ const translations = {
 
     'badge.live': 'Live · bisnis nyata',
     'badge.public': 'Dataset publik',
-    'badge.measured': 'Hasil terukur',
 
     'projects.tag': 'Proyek',
     'projects.title': 'Karya Unggulan',
@@ -239,10 +220,6 @@ const translations = {
     'proj.powerbi.desc': 'UCI Online Retail — dataset yang sudah dipakai ribuan orang. Yang jadi milik saya adalah investigasinya: melacak dua mega-order yang dibatalkan dan menggelembungkan return rate lebih dari dua kali lipat.',
     'proj.powerbi.cta': 'Lihat Catatan Build →',
     'proj.powerbi.aria': 'Lihat catatan build Retail Business Intelligence',
-    'proj.next.tag': 'Berikutnya',
-    'proj.next.title': 'Bukti bahwa ini berhasil',
-    'proj.next.desc': 'Sinok sudah berjalan di atas sistemnya. Yang belum saya punya adalah angka yang benar-benar penting: jam yang dihemat, double booking yang dicegah, diukur terhadap kondisi sebelumnya. Itu butuh berbulan-bulan data asli, bukan demo. Akan muncul di sini kalau sudah ada.',
-    'proj.next.cta': 'Mau jadi yang berikutnya? →',
 
     'exp.tag': 'Pengalaman',
     'exp.title': 'Perjalanan Karier',
@@ -268,38 +245,18 @@ const translations = {
     'certs.title': 'Lisensi & Sertifikasi',
     'cert3.name': 'Machine Learning (Fresh Graduate Academy)',
     'cert3.date': 'Nov 2025',
-    'cert4.name': 'Belajar Machine Learning untuk Pemula',
-    'cert4.date': 'Des 2025',
+    'cert4.name': 'Membangun Proyek Deep Learning Tingkat Mahir',
+    'cert4.date': 'Apr 2026 · Berlaku s.d. Apr 2029',
 
     'contact.tag': 'Kontak',
     'contact.title': 'Mari Bekerja Sama',
     'contact.subtitle': 'Ceritakan kerja manual yang menghabiskan waktu Anda tiap minggu. Kalau saya tidak bisa membantu, itu juga akan saya bilang.',
     'contact.availability': 'Sedang menerima proyek freelance',
     'contact.secondary': 'Juga terbuka untuk posisi full-time di analisis data atau BI.',
-    'contact.form.name': 'Nama',
-    'contact.form.namePh': 'Nama Anda',
-    'contact.form.subject': 'Subjek',
-    'contact.form.subjectPh': 'Diskusi proyek',
-    'contact.form.message': 'Pesan',
-    'contact.form.messagePh': 'Kerja manual apa yang ingin Anda hilangkan?',
-    'contact.form.send': 'Kirim Pesan',
-    'contact.form.sending': 'Mengirim…',
-    'contact.form.success': 'Terkirim. Saya balas dalam dua hari kerja.',
-    'contact.form.error': 'Gagal terkirim. Email langsung ke septianivander.data@gmail.com.',
-    'contact.form.invalid': 'Isi nama, email yang valid, dan pesan Anda.',
-    'contact.form.opening': 'Membuka aplikasi email Anda…',
-    'contact.form.fallback': 'Browser Anda memblokir aplikasi email. Kirim langsung ke septianivander.data@gmail.com.',
 
     'footer.copy': '© 2026 Septian Ivander. Dibuat dengan HTML, CSS & JavaScript.',
   },
 };
-
-const EMAIL = 'septianivander.data@gmail.com';
-
-// TODO(septian): sign up at https://formspree.io (free), create a form, and paste its endpoint
-// here — e.g. 'https://formspree.io/f/xxxxxxxx'. While this stays empty the form degrades to
-// mailto:, which phones and popup blockers handle badly and which loses most submissions.
-const FORM_ENDPOINT = '';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -414,84 +371,6 @@ filterBtns.forEach(btn => {
       card.classList.toggle('hidden', !show);
     });
   });
-});
-
-// ─── Contact form ────────────────────────────────────────────────
-const contactForm = document.getElementById('contactForm');
-const contactSubmit = document.getElementById('contactSubmit');
-const formStatus = document.getElementById('formStatus');
-
-function t(key) {
-  return translations[currentLang][key];
-}
-
-function showFormStatus(message, kind) {
-  formStatus.hidden = false;
-  formStatus.dataset.kind = kind;
-  formStatus.textContent = message;
-}
-
-function isValidSubmission(data) {
-  return Boolean(data.name.trim()) &&
-         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()) &&
-         Boolean(data.message.trim());
-}
-
-// No endpoint configured yet: fall back to mailto:, and be honest when it fails.
-function submitViaMailto(data) {
-  const subject = encodeURIComponent(data.subject || 'Portfolio Contact');
-  const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`);
-
-  showFormStatus(t('contact.form.opening'), 'info');
-  window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-
-  // If a mail client had taken over, the tab would be hidden by now.
-  setTimeout(() => {
-    if (!document.hidden) showFormStatus(t('contact.form.fallback'), 'warn');
-  }, 2000);
-}
-
-async function submitViaEndpoint(form) {
-  const response = await fetch(FORM_ENDPOINT, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { Accept: 'application/json' },
-  });
-  if (!response.ok) throw new Error(`Form endpoint returned ${response.status}`);
-}
-
-contactForm.addEventListener('submit', async e => {
-  e.preventDefault();
-
-  const data = Object.fromEntries(new FormData(contactForm));
-
-  // The honeypot is invisible; only a bot fills it.
-  if (data._gotcha) return;
-
-  if (!isValidSubmission(data)) {
-    showFormStatus(t('contact.form.invalid'), 'error');
-    return;
-  }
-
-  if (!FORM_ENDPOINT) {
-    submitViaMailto(data);
-    return;
-  }
-
-  contactSubmit.disabled = true;
-  contactSubmit.textContent = t('contact.form.sending');
-
-  try {
-    await submitViaEndpoint(contactForm);
-    contactForm.reset();
-    showFormStatus(t('contact.form.success'), 'success');
-  } catch (err) {
-    console.error(err);
-    showFormStatus(t('contact.form.error'), 'error');
-  } finally {
-    contactSubmit.disabled = false;
-    contactSubmit.textContent = t('contact.form.send');
-  }
 });
 
 // ─── Hero stat counters ──────────────────────────────────────────
