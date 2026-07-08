@@ -1755,6 +1755,11 @@ body.modal-open { overflow: hidden; }
   color: var(--slate);
 }
 
+/* ── Modal language toggle (EN/ID dual content) ── */
+.modal-lang--en { display: none; }
+html[data-lang="en"] .modal-lang--en { display: block; }
+html[data-lang="en"] .modal-lang--id { display: none; }
+
 /* ── Power BI workflow flow ── */
 .pbi-flow {
   display: flex;
