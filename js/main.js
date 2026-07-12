@@ -123,6 +123,7 @@ const translations = {
     'contact.tag': 'Contact',
     'contact.title': "Let's Work Together",
     'contact.subtitle': "Describe the manual work that's eating your week. If I can't help, I'll tell you that too.",
+    'contact.wa.cta': 'Chat on WhatsApp',
     'contact.availability': 'Taking freelance projects now',
     'contact.secondary': 'Also open to full-time roles in data analysis or BI.',
 
@@ -251,6 +252,7 @@ const translations = {
     'contact.tag': 'Kontak',
     'contact.title': 'Mari Bekerja Sama',
     'contact.subtitle': 'Ceritakan kerja manual yang menghabiskan waktu Anda tiap minggu. Kalau saya tidak bisa membantu, itu juga akan saya bilang.',
+    'contact.wa.cta': 'Hubungi saya di WhatsApp',
     'contact.availability': 'Sedang menerima proyek freelance',
     'contact.secondary': 'Juga terbuka untuk posisi full-time di analisis data atau BI.',
 
