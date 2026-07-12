@@ -337,7 +337,7 @@ setActiveLink();
 
 // ─── Reveal on scroll ────────────────────────────────────────────
 const revealTargets = document.querySelectorAll(
-  '.hero__content, .hero__visual, .about__text, .about__card, .skill-card, .project-card, .timeline__item, .contact__info, .contact__form'
+  '.hero__content, .about__text, .about__card, .skill-card, .project-card, .timeline__item, .contact__info, .contact__form'
 );
 
 if (prefersReducedMotion) {
