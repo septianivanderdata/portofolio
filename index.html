@@ -72,7 +72,10 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
   <!-- NAV -->
+  <header>
   <nav class="nav" id="nav">
     <div class="nav__container">
       <a href="#home" class="nav__logo">SI<span>.</span></a>
@@ -88,12 +91,14 @@
       </ul>
       <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language">
         <span class="lang-toggle__active">EN</span>
-        <span class="lang-toggle__sep">/</span>
+        <span class="lang-toggle__sep" aria-hidden="true">/</span>
         <span class="lang-toggle__other">ID</span>
       </button>
     </div>
   </nav>
+  </header>
 
+  <main id="main" tabindex="-1">
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero__container">
@@ -591,6 +596,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -636,20 +642,20 @@
         <p><b>Jujurnya:</b> membersihkan data adalah syarat minimum, bukan prestasi. Yang layak dinilai di sini cara mencarinya, bukan angkanya.</p>
       </div>
 
-      <h4>Ringkasan</h4>
+      <h3>Ringkasan</h3>
       <p class="sinok-modal__para">Dashboard analisis end-to-end berbasis Power BI menggunakan dataset transaksi e-commerce UK (UCI Online Retail, ±541K baris). Terdiri dari dua halaman — <strong>Overview</strong> untuk performa penjualan, dan <strong>Customer &amp; Return</strong> untuk analisis pelanggan serta retur produk.</p>
       <p class="sinok-modal__para">Fokus utama bukan sekadar visualisasi, tapi keseluruhan proses data analyst: pembersihan data mentah di Power Query, pemodelan star schema, pembuatan measure DAX, hingga validasi kualitas data — agar angka yang ditampilkan benar-benar bisa dipercaya untuk pengambilan keputusan.</p>
 
-      <h4>Masalah</h4>
+      <h3>Masalah</h3>
       <div class="problem-box">
         <p>Data transaksi mentah e-commerce hampir selalu menyimpan jebakan yang membuat analisis menyesatkan jika langsung divisualisasikan: transaksi anomali ekstrem (order 80.995 unit yang dibatalkan 12 menit kemudian), retur tanpa penjualan padanan, transaksi non-produk (biaya pos, bank charges), deskripsi kosong, serta harga nol. Tanpa pembersihan, metrik seperti Return Rate terdistorsi lebih dari dua kali lipat.</p>
         <p style="margin-top:10px">Agregasi per negara dengan sampel kecil juga menghasilkan persentase yang tampak dramatis tapi tidak reliable secara statistik — risiko nyata salah pengambilan keputusan bisnis.</p>
       </div>
 
-      <h4>Solusi</h4>
+      <h3>Solusi</h3>
       <p class="sinok-modal__para">Membangun pipeline pembersihan data di Power Query (M language) yang menangani setiap masalah kualitas data secara sistematis, lalu memodelkan data ke <strong>star schema</strong> (Fact_Sales + Dim_Product, Dim_Customer, Dim_Date) untuk performa dan fleksibilitas analisis. Di atasnya dibuat measure DAX untuk metrik penjualan, analisis retur, pertumbuhan month-over-month dengan label &amp; warna dinamis, serta teks insight otomatis. Visual yang rawan misleading diberi guard-rail statistik — misal filter minimum 100 transaksi pada Return Rate per negara.</p>
 
-      <h4>Alur Kerja</h4>
+      <h3>Alur Kerja</h3>
       <div class="pbi-flow">
         <span>Raw CSV</span><i>→</i><span>Power Query (Cleaning)</span><i>→</i><span>Star Schema</span><i>→</i><span>DAX Measures</span><i>→</i><span>2-Page Dashboard</span>
       </div>
@@ -662,7 +668,7 @@
         <li>Desain dashboard dua halaman dengan slicer Year &amp; Country, plus filter statistik pada visual retur.</li>
       </ol>
 
-      <h4>Nilai untuk Bisnis</h4>
+      <h3>Nilai untuk Bisnis</h3>
       <div class="value-grid">
         <div>
           <h5>Data Quality</h5>
@@ -678,7 +684,7 @@
         </div>
       </div>
 
-      <h4>Galeri</h4>
+      <h3>Galeri</h3>
       <div class="sinok-gallery">
         <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-overview.webp" data-caption="Overview — Performa Penjualan, Tren, Geografis &amp; Produk">
           <picture>
@@ -696,7 +702,7 @@
         </div>
       </div>
 
-      <h4>Sorotan</h4>
+      <h3>Sorotan</h3>
       <ul class="sinok-modal__list">
         <li>Menemukan 2 pasang transaksi order–cancel ekstrem (80.995 &amp; 74.215 unit) yang mendistorsi total retur hampir £246K.</li>
         <li>Pembersihan data menurunkan Total Return Value dari £478.72K menjadi £233.07K, dan Return Quantity dari 272K menjadi 117K.</li>
@@ -705,7 +711,7 @@
         <li>Measure DAX dinamis: label pertumbuhan MoM dengan warna kondisional dan teks insight otomatis.</li>
       </ul>
 
-      <h4>Hasil</h4>
+      <h3>Hasil</h3>
       <div class="result-grid">
         <div>
           <strong>2</strong>
@@ -725,12 +731,12 @@
         </div>
       </div>
 
-      <h4>⚠ Limitasi Teknis</h4>
+      <h3>⚠ Limitasi Teknis</h3>
       <div class="warn-box">
         <p>Dataset berakhir 9 Desember 2011, sehingga bulan terakhir bersifat parsial dan dikecualikan dari interpretasi tren. Threshold outlier (&gt;10.000 unit) dipilih berdasarkan gap distribusi kuantitas pada dataset ini dan perlu dikalibrasi ulang untuk dataset lain. CustomerID kosong dikategorikan sebagai "Guest" — asumsi yang belum tervalidasi terhadap sistem sumber.</p>
       </div>
 
-      <h4>Tech Stack</h4>
+      <h3>Tech Stack</h3>
       <div class="project-card__tech">
         <span>Power BI</span><span>Power Query (M)</span><span>DAX</span><span>Star Schema</span><span>Data Cleaning</span><span>Data Modeling</span><span>Data Visualization</span>
       </div>
@@ -746,20 +752,20 @@
         <p><b>Being honest:</b> cleaning data is the minimum bar, not an achievement. What's worth judging here is how the anomaly was found, not the number itself.</p>
       </div>
 
-      <h4>Overview</h4>
+      <h3>Overview</h3>
       <p class="sinok-modal__para">An end-to-end analysis dashboard built in Power BI on a UK e-commerce transaction dataset (UCI Online Retail, ±541K rows). Two pages — <strong>Overview</strong> for sales performance, and <strong>Customer &amp; Return</strong> for customer and product-return analysis.</p>
       <p class="sinok-modal__para">The focus isn't just visualization, but the whole data-analyst process: cleaning raw data in Power Query, star-schema modeling, building DAX measures, and validating data quality — so the numbers shown can genuinely be trusted for decision-making.</p>
 
-      <h4>Problem</h4>
+      <h3>Problem</h3>
       <div class="problem-box">
         <p>Raw e-commerce transaction data almost always hides traps that make analysis misleading if visualized as-is: extreme anomaly transactions (an 80,995-unit order cancelled 12 minutes later), returns with no matching sale, non-product transactions (postage, bank charges), blank descriptions, and zero prices. Without cleaning, metrics like Return Rate are distorted by more than double.</p>
         <p style="margin-top:10px">Aggregating per country on tiny samples also produces percentages that look dramatic but aren't statistically reliable — a real risk of wrong business decisions.</p>
       </div>
 
-      <h4>Solution</h4>
+      <h3>Solution</h3>
       <p class="sinok-modal__para">Built a data-cleaning pipeline in Power Query (M language) that handles every data-quality issue systematically, then modeled the data into a <strong>star schema</strong> (Fact_Sales + Dim_Product, Dim_Customer, Dim_Date) for performance and analytical flexibility. On top, DAX measures for sales metrics, return analysis, month-over-month growth with dynamic labels &amp; colors, plus automatic insight text. Misleading-prone visuals get statistical guard-rails — e.g. a minimum 100-transaction filter on per-country Return Rate.</p>
 
-      <h4>Workflow</h4>
+      <h3>Workflow</h3>
       <div class="pbi-flow">
         <span>Raw CSV</span><i>→</i><span>Power Query (Cleaning)</span><i>→</i><span>Star Schema</span><i>→</i><span>DAX Measures</span><i>→</i><span>2-Page Dashboard</span>
       </div>
@@ -772,7 +778,7 @@
         <li>Design the two-page dashboard with Year &amp; Country slicers, plus a statistical filter on the return visual.</li>
       </ol>
 
-      <h4>Value Proposition</h4>
+      <h3>Value Proposition</h3>
       <div class="value-grid">
         <div>
           <h5>Data Quality</h5>
@@ -788,7 +794,7 @@
         </div>
       </div>
 
-      <h4>Gallery</h4>
+      <h3>Gallery</h3>
       <div class="sinok-gallery">
         <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/powerbi-overview.webp" data-caption="Overview — Sales Performance, Trend, Geographic &amp; Product Breakdown">
           <picture>
@@ -806,7 +812,7 @@
         </div>
       </div>
 
-      <h4>Highlights</h4>
+      <h3>Highlights</h3>
       <ul class="sinok-modal__list">
         <li>Found 2 extreme order–cancel transaction pairs (80,995 &amp; 74,215 units) distorting total returns by nearly £246K.</li>
         <li>Data cleaning cut Total Return Value from £478.72K to £233.07K, and Return Quantity from 272K to 117K.</li>
@@ -815,7 +821,7 @@
         <li>Dynamic DAX measures: MoM growth labels with conditional colors and automatic insight text.</li>
       </ul>
 
-      <h4>Results</h4>
+      <h3>Results</h3>
       <div class="result-grid">
         <div>
           <strong>2</strong>
@@ -835,12 +841,12 @@
         </div>
       </div>
 
-      <h4>⚠ Technical Limitations</h4>
+      <h3>⚠ Technical Limitations</h3>
       <div class="warn-box">
         <p>The dataset ends 9 December 2011, so the final month is partial and excluded from trend interpretation. The outlier threshold (&gt;10,000 units) was chosen from this dataset's quantity-distribution gap and needs recalibration for other datasets. Blank CustomerIDs are categorized as "Guest" — an assumption not yet validated against the source system.</p>
       </div>
 
-      <h4>Tech Stack</h4>
+      <h3>Tech Stack</h3>
       <div class="project-card__tech">
         <span>Power BI</span><span>Power Query (M)</span><span>DAX</span><span>Star Schema</span><span>Data Cleaning</span><span>Data Modeling</span><span>Data Visualization</span>
       </div>
@@ -867,21 +873,21 @@
         <p><b>Yang bisa dinilai dari sini:</b> saya membangun sistem yang cukup dipercaya sebuah usaha nyata untuk dipakai sehari-hari. Bukan bahwa saya sudah membuktikan sistem itu memperbaiki bisnisnya.</p>
       </div>
 
-      <h4>Ringkasan</h4>
+      <h3>Ringkasan</h3>
       <p class="sinok-modal__para">Sinok Homestay adalah penginapan 3 kamar di Balige, Kabupaten Toba. Sistem ini dibangun untuk masalah yang mereka alami sendiri: booking masuk lewat WhatsApp, tersebar di chat dan buku catatan, rekapnya memakan waktu, dan beberapa kali terjadi pemesanan ganda.</p>
       <p class="sinok-modal__para">Melalui sistem ini, booking dapat dicatat lewat Telegram Bot, tersimpan otomatis ke Google Sheets, memicu reminder update OTA, lalu divisualisasikan dalam dashboard okupansi dan revenue. Data historis juga digunakan untuk membuat proyeksi okupansi dan pendapatan bulan berikutnya.</p>
 
-      <h4>Masalah</h4>
+      <h3>Masalah</h3>
       <div class="problem-box">
         <p>Banyak usaha homestay memiliki data operasional yang sebenarnya kaya insight, tetapi belum dimanfaatkan karena pencatatan masih manual. Admin sering menerima booking dari berbagai channel seperti Traveloka, Agoda, Booking.com, atau direct order, namun data tersebut tidak selalu tercatat dalam satu sistem yang rapi.</p>
         <p style="margin-top:8px">Akibatnya, pemilik sulit mengetahui performa okupansi, channel mana yang paling efektif, kapan periode ramai/sepi, serta berapa potensi revenue bulan berikutnya. Risiko lain yang muncul adalah keterlambatan update ketersediaan kamar di OTA, sehingga peluang double booking menjadi lebih besar.</p>
       </div>
 
-      <h4>Solusi</h4>
+      <h3>Solusi</h3>
       <p class="sinok-modal__para">Project ini membangun alur sederhana namun end-to-end: admin cukup memasukkan booking melalui format command di Telegram Bot. Data booking kemudian divalidasi, disimpan ke Google Sheets, dan langsung memicu pesan pengingat agar admin memperbarui ketersediaan kamar di semua OTA.</p>
       <p class="sinok-modal__para">Data yang terkumpul digunakan untuk membuat dashboard analisis okupansi, revenue, sumber booking, rata-rata lama tinggal, harga per malam, serta tren musiman. Selain itu, sistem juga menghitung proyeksi okupansi dan revenue untuk bulan berikutnya berdasarkan pola historis.</p>
 
-      <h4>Alur Kerja</h4>
+      <h3>Alur Kerja</h3>
       <div class="sinok-workflow">
         <div class="sinok-workflow__flow">
           <span>Telegram Bot</span><span class="sinok-workflow__arrow">→</span>
@@ -900,7 +906,7 @@
         </ol>
       </div>
 
-      <h4>Nilai untuk Bisnis</h4>
+      <h3>Nilai untuk Bisnis</h3>
       <div class="value-grid">
         <div>
           <h5>Visibility</h5>
@@ -916,7 +922,7 @@
         </div>
       </div>
 
-      <h4>Galeri</h4>
+      <h3>Galeri</h3>
       <div class="sinok-gallery">
         <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-workflow.webp" data-caption="n8n Automation Workflow">
           <picture>
@@ -948,7 +954,7 @@
         </div>
       </div>
 
-      <h4>Sorotan</h4>
+      <h3>Sorotan</h3>
       <ul class="sinok-modal__list">
         <li>Booking baru tercatat ke Google Sheets dalam &lt;1 menit via satu baris command chat.</li>
         <li>Setiap booking otomatis memicu reminder ke semua OTA lain seperti Traveloka, Agoda, dan Booking.com.</li>
@@ -958,7 +964,7 @@
         <li>Dikembangkan dan diuji pada 784 transaksi simulasi (Jun 2024–Jun 2026) sebelum dipasang di homestay aslinya pada Juli 2026.</li>
       </ul>
 
-      <h4>Angka Build (dari data uji, bukan hasil bisnis)</h4>
+      <h3>Angka Build (dari data uji, bukan hasil bisnis)</h3>
       <div class="result-grid">
         <div>
           <strong>&lt;1 mnt</strong>
@@ -984,7 +990,7 @@
         <p>Lalu yang paling penting: setelah cukup bulan berjalan, mengukur sebelum-sesudah dengan data booking asli Sinok. Sampai itu ada, project ini membuktikan sistemnya jalan — belum membuktikan bisnisnya membaik.</p>
       </div>
 
-      <h4>Tech Stack</h4>
+      <h3>Tech Stack</h3>
       <div class="project-card__tech">
         <span>Google Sheets</span><span>n8n</span><span>Telegram Bot API</span><span>Python</span><span>Dashboard</span><span>Automation</span><span>Forecasting</span><span>Data Cleaning</span><span>Workflow Automation</span>
       </div>
@@ -1001,21 +1007,21 @@
         <p><b>What you can judge from it:</b> that I built something a real business trusted enough to run on daily. Not that I've proven it improved their business.</p>
       </div>
 
-      <h4>Overview</h4>
+      <h3>Overview</h3>
       <p class="sinok-modal__para">Sinok Homestay is a three-room guesthouse in Balige, Toba Regency. The system was built for a problem they actually had: bookings arriving over WhatsApp, scattered across chats and notebooks, slow to reconcile, and double-booked more than once.</p>
       <p class="sinok-modal__para">With this system, bookings are logged via a Telegram Bot, saved automatically to Google Sheets, trigger OTA-update reminders, then get visualized in an occupancy and revenue dashboard. Historical data also feeds next-month occupancy and revenue projections.</p>
 
-      <h4>Problem</h4>
+      <h3>Problem</h3>
       <div class="problem-box">
         <p>Many homestay businesses hold operational data that's genuinely rich in insight, but leave it unused because record-keeping is still manual. Admins receive bookings from many channels — Traveloka, Agoda, Booking.com, or direct orders — yet that data isn't always captured in one tidy system.</p>
         <p style="margin-top:8px">As a result, owners struggle to know occupancy performance, which channel is most effective, when the busy/quiet periods fall, and how much revenue next month could bring. Another risk: delayed room-availability updates on OTAs, which raises the chance of double booking.</p>
       </div>
 
-      <h4>Solution</h4>
+      <h3>Solution</h3>
       <p class="sinok-modal__para">This project builds a simple but end-to-end flow: the admin just enters a booking through a command format in the Telegram Bot. The booking is then validated, saved to Google Sheets, and immediately triggers a reminder message for the admin to update room availability across all OTAs.</p>
       <p class="sinok-modal__para">The collected data powers an analysis dashboard for occupancy, revenue, booking source, average length of stay, price per night, and seasonal trends. The system also computes next-month occupancy and revenue projections from historical patterns.</p>
 
-      <h4>Workflow</h4>
+      <h3>Workflow</h3>
       <div class="sinok-workflow">
         <div class="sinok-workflow__flow">
           <span>Telegram Bot</span><span class="sinok-workflow__arrow">→</span>
@@ -1034,7 +1040,7 @@
         </ol>
       </div>
 
-      <h4>Value Proposition</h4>
+      <h3>Value Proposition</h3>
       <div class="value-grid">
         <div>
           <h5>Visibility</h5>
@@ -1050,7 +1056,7 @@
         </div>
       </div>
 
-      <h4>Gallery</h4>
+      <h3>Gallery</h3>
       <div class="sinok-gallery">
         <div class="sinok-gallery__item" role="button" tabindex="0" data-src="assets/sinok-workflow.webp" data-caption="n8n Automation Workflow">
           <picture>
@@ -1082,7 +1088,7 @@
         </div>
       </div>
 
-      <h4>Highlights</h4>
+      <h3>Highlights</h3>
       <ul class="sinok-modal__list">
         <li>A new booking is recorded to Google Sheets in &lt;1 minute via a single chat command.</li>
         <li>Every booking automatically triggers reminders to update all other OTAs like Traveloka, Agoda, and Booking.com.</li>
@@ -1092,7 +1098,7 @@
         <li>Developed and tested against 784 simulated transactions (Jun 2024–Jun 2026) before going live at the real homestay in July 2026.</li>
       </ul>
 
-      <h4>Build Numbers (from test data, not business results)</h4>
+      <h3>Build Numbers (from test data, not business results)</h3>
       <div class="result-grid">
         <div>
           <strong>&lt;1 min</strong>
@@ -1118,7 +1124,7 @@
         <p>Then the one that matters: once enough months have passed, measuring before and after on Sinok's real booking data. Until that exists, this project proves the system runs — not that the business got better.</p>
       </div>
 
-      <h4>Tech Stack</h4>
+      <h3>Tech Stack</h3>
       <div class="project-card__tech">
         <span>Google Sheets</span><span>n8n</span><span>Telegram Bot API</span><span>Python</span><span>Dashboard</span><span>Automation</span><span>Forecasting</span><span>Data Cleaning</span><span>Workflow Automation</span>
       </div>
@@ -1131,7 +1137,7 @@
     <div class="sinok-lightbox__overlay"></div>
     <div class="sinok-lightbox__content">
       <button class="sinok-lightbox__close" aria-label="Close">&times;</button>
-      <img class="sinok-lightbox__img" src="" alt="" />
+      <img class="sinok-lightbox__img" alt="" />
       <p class="sinok-lightbox__caption"></p>
     </div>
   </div>
