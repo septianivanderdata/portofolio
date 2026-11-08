@@ -1,6 +1,7 @@
 // ─── i18n ────────────────────────────────────────────────────────
 const translations = {
   en: {
+    'nav.skip': 'Skip to content',
     'nav.about': 'About',
     'nav.services': 'Services',
     'nav.projects': 'Projects',
@@ -130,6 +131,7 @@ const translations = {
     'footer.copy': '© 2026 Septian Ivander. Built with HTML, CSS & JavaScript.',
   },
   id: {
+    'nav.skip': 'Lewati ke konten',
     'nav.about': 'Tentang',
     'nav.services': 'Layanan',
     'nav.projects': 'Proyek',
@@ -293,6 +295,7 @@ function applyLang(lang) {
   if (toggle) {
     toggle.querySelector('.lang-toggle__active').textContent = lang.toUpperCase();
     toggle.querySelector('.lang-toggle__other').textContent = lang === 'en' ? 'ID' : 'EN';
+    toggle.setAttribute('aria-label', lang === 'en' ? 'Switch language to Indonesian' : 'Ganti bahasa ke Inggris');
   }
 
   try { localStorage.setItem('lang', lang); } catch (e) { /* ignore */ }
